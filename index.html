@@ -43,23 +43,14 @@
       cursor: grabbing;
     }
 
-    /* Transiciones suaves para los nodos */
+    /* Transiciones suaves para los nodos (modo estrictamente de lectura) */
     .cmap-node {
       transition: filter 0.18s ease, opacity 0.22s ease;
-      cursor: grab;
-    }
-
-    body.readonly-mode .cmap-node {
       cursor: pointer;
     }
 
     .cmap-node:hover .node-box {
       filter: drop-shadow(0 6px 14px rgba(15, 23, 42, 0.14));
-    }
-
-    .cmap-node.is-dragging {
-      cursor: grabbing;
-      z-index: 50;
     }
 
     .cmap-edge-group {
@@ -184,10 +175,10 @@
           <button type="button" data-filter-btn="origin:warner" onclick="setCombinedFilter('origin', 'warner')"
             class="filter-pill-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#dbeafe] text-[#0f172a] border border-[#0066cc] hover:brightness-95 transition inline-flex items-center gap-1.5">
             <svg width="14" height="16" viewBox="0 0 100 112" class="shrink-0">
-              <path d="M50 2 L78 11 L78 17 L94 23 C94 62 78 89 50 109 C22 89 6 62 6 23 L22 17 L22 11 Z" fill="#ffffff"/>
-              <path fill-rule="evenodd" d="M50 2 L78 11 L78 17 L94 23 C94 62 78 89 50 109 C22 89 6 62 6 23 L22 17 L22 11 Z M50 10 L28 17 L28 22 L14 27 C14 60 27 83 50 100 C73 83 86 60 86 27 L72 22 L72 17 Z" fill="#0066cc"/>
-              <path d="M18.5 30.5 L25.5 30.5 L31.5 66 L37.5 43 L42.5 43 L46.2 66 L48.8 23.5 L53.5 22.2 L49.8 92.5 C47.5 90.8 45.5 89.2 43.8 87.6 L39.8 61 L34.2 81.5 C24.5 69.5 18.5 52.5 18.5 30.5 Z" fill="#0066cc"/>
-              <path fill-rule="evenodd" d="M56.8 21.5 L68.5 25 C77.5 27.5 81.5 35 80.5 43.5 C79.8 49 76.5 52.5 72.5 54 C78 56 81.5 61 79.5 69.5 C77 79.5 69 86.5 56.8 93.5 Z M63.2 29.5 L63.2 49.5 L68.5 49.5 C73 49.5 74.8 46.2 74.8 41.5 C74.8 36.5 72.5 32.5 67.8 31 Z M63.2 57.5 L63.2 81.5 L68.2 78.5 C73 75.5 74.5 70.5 74.2 65.5 C73.8 60.5 71 57.5 66.5 57.5 Z" fill="#0066cc"/>
+              <path d="M50 3 L78 12 L78 18 L94 24 C94 62 78 89 50 109 C22 89 6 62 6 24 L22 18 L22 12 Z" fill="#ffffff"/>
+              <path fill-rule="evenodd" d="M50 3 L78 12 L78 18 L94 24 C94 62 78 89 50 109 C22 89 6 62 6 24 L22 18 L22 12 Z M50 10.5 L28 17.5 L28 22.5 L13.5 27.5 C13.5 60 27 83 50 100 C73 83 86.5 60 86.5 27.5 L72 22.5 L72 17.5 Z" fill="#000000"/>
+              <path d="M18.5 31 L25.5 31 L31.5 66 L37.5 43 L42.5 43 L46.2 66 L48.8 24 L53.5 22.5 L49.8 92.5 C47.5 90.8 45.5 89.2 43.8 87.6 L39.8 61 L34.2 81.5 C24.5 69.5 18.5 52.5 18.5 31 Z" fill="#000000"/>
+              <path fill-rule="evenodd" d="M56.8 22 L68.5 25.5 C77.5 28 81.5 35.5 80.5 44 C79.8 49.5 76.5 53 72.5 54.5 C78 56.5 81.5 61.5 79.5 70 C77 80 69 87 56.8 94 Z M63.2 30 L63.2 50 L68.5 50 C73 50 74.8 46.7 74.8 42 C74.8 37 72.5 33 67.8 31.5 Z M63.2 58 L63.2 82 L68.2 79 C73 76 74.5 71 74.2 66 C73.8 61 71 58 66.5 58 Z" fill="#000000"/>
             </svg>
             <span>Warner Bros.</span>
             <span id="count-origin-warner" class="opacity-80 font-normal"></span>
@@ -195,17 +186,16 @@
 
           <button type="button" data-filter-btn="origin:paramount" onclick="setCombinedFilter('origin', 'paramount')"
             class="filter-pill-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#ede9fe] text-[#1e1b4b] border border-[#5b21b6] hover:brightness-95 transition inline-flex items-center gap-1.5">
-            <svg width="16" height="15" viewBox="0 0 110 100" class="shrink-0">
-              <circle cx="55" cy="54" r="45" fill="#ffffff"/>
-              <circle cx="55" cy="56" r="33" fill="#0066cc"/>
-              <path d="M26 78 L41 56 L47 63 L55 41 L64 62 L70 55 L84 78 Z" fill="#ffffff"/>
-              <path d="M46 65 L55 45 L62 64 L57 59 L55 68 L51 59 Z" fill="#0066cc"/>
-              <text x="55" y="45" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="14.5" fill="#ffffff" stroke="#0066cc" stroke-width="0.6">Paramount</text>
-              <g fill="#0066cc">
-                <circle cx="15" cy="58" r="2.2"/><circle cx="17" cy="46" r="2.2"/><circle cx="22" cy="34" r="2.2"/>
-                <circle cx="30" cy="24" r="2.2"/><circle cx="41" cy="17" r="2.2"/><circle cx="55" cy="14" r="2.3"/>
-                <circle cx="69" cy="17" r="2.2"/><circle cx="80" cy="24" r="2.2"/><circle cx="88" cy="34" r="2.2"/>
-                <circle cx="93" cy="46" r="2.2"/><circle cx="95" cy="58" r="2.2"/>
+            <svg width="16" height="15" viewBox="0 0 100 94" class="shrink-0">
+              <path d="M 13.5 90 A 47 47 0 1 1 86.5 90 Z" fill="#0064FF"/>
+              <path d="M 13 90 L 25 75 L 27.5 74 L 42 54.5 L 44.5 52.5 L 48.5 45.5 Q 50.5 43.2 52.8 45.5 L 56.5 49 L 67 66.5 L 71 68.5 L 87 90 Z" fill="#ffffff"/>
+              <path d="M 30 86.5 C 29 85.5 29.5 83.5 31 81.5 L 42.5 64.5 C 43 64 43.5 64.5 43 65.5 L 36.5 77.5 L 42.5 69.5 L 50.8 47.8 L 51.8 48.2 L 64.5 69.5 L 67.5 72 L 73.5 77.5 L 66 73.5 L 65.5 76.5 L 70 83.5 L 85.5 90 L 58 90 L 59.5 86 L 68.5 88.5 L 65.5 79.5 L 64 78.5 L 65 73 L 61.5 69.5 L 51.5 52 L 46 61 L 47 62.5 L 41.5 74.5 L 52.5 75.5 L 49.5 84.5 L 49.5 90 L 34 90 L 39 78 L 32 86.5 Z" fill="#0064FF"/>
+              <g fill="#ffffff">
+                <circle cx="16.9" cy="71.6" r="3.1"/><circle cx="12.9" cy="59.4" r="3.1"/><circle cx="13.2" cy="46.6" r="3.1"/>
+                <circle cx="17.9" cy="34.7" r="3.1"/><circle cx="26.2" cy="25.0" r="3.1"/><circle cx="37.4" cy="18.7" r="3.1"/>
+                <circle cx="50.0" cy="16.5" r="3.2"/><circle cx="62.6" cy="18.7" r="3.1"/><circle cx="73.8" cy="25.0" r="3.1"/>
+                <circle cx="82.1" cy="34.7" r="3.1"/><circle cx="86.8" cy="46.6" r="3.1"/><circle cx="87.1" cy="59.4" r="3.1"/>
+                <circle cx="83.1" cy="71.6" r="3.1"/>
               </g>
             </svg>
             <span>Paramount</span>
@@ -251,17 +241,14 @@
 
         <div class="h-5 w-px bg-slate-200 shrink-0 hidden sm:block"></div>
 
-        <!-- Botones No Editar (Solo Lectura), Expandir Todo y Colapsar a Divisiones -->
+        <!-- Indicador fijo de Solo Lectura + Controles de Árbol -->
         <div class="flex items-center gap-1.5 shrink-0">
-          <button
-            id="readonly-toggle-btn"
-            type="button"
-            onclick="toggleReadOnlyMode()"
-            title="Alternar entre Modo Solo Lectura y Modo Edición"
-            class="px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 transition whitespace-nowrap inline-flex items-center gap-1.5 shadow-2xs">
-            <span id="readonly-toggle-icon">🔓</span>
-            <span id="readonly-toggle-label">Permitir editar</span>
-          </button>
+          <span
+            title="Este organigrama es exclusivamente de consulta y lectura"
+            class="px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300 whitespace-nowrap inline-flex items-center gap-1.5 select-none">
+            <span>🔒</span>
+            <span>Solo lectura</span>
+          </span>
           <button type="button" onclick="expandAllNodes()"
             class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 transition whitespace-nowrap">
             Expandir Todo
@@ -270,6 +257,116 @@
             class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 transition whitespace-nowrap">
             Colapsar a Divisiones
           </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra Ejecutiva Secundaria: Hub Geográfico, Marca, Red Matricial, Dashboards y Exportación -->
+    <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
+      <div class="flex items-center gap-1.5 shrink-0">
+        <!-- Filtro por Sede / Hub Geográfico -->
+        <div class="relative flex items-center">
+          <select id="hub-filter-select" onchange="setHubFilter(this.value)" aria-label="Filtrar por Sede o Hub Geográfico"
+            class="pl-2.5 pr-6 py-1 rounded-lg text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-300 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-800 transition cursor-pointer">
+            <option value="all">📍 Sede / Hub: Todas</option>
+            <option value="la">📍 Los Ángeles / Hollywood</option>
+            <option value="ny">📍 Nueva York</option>
+            <option value="london">📍 Londres / UK & Europa</option>
+            <option value="latam">📍 Miami / Latinoamérica & USH</option>
+            <option value="apac">📍 Singapur / APAC & MENA</option>
+            <option value="poland">📍 Varsovia / Polonia</option>
+          </select>
+        </div>
+
+        <!-- Filtro por Marca / Unidad Clave -->
+        <div class="relative flex items-center">
+          <select id="brand-filter-select" onchange="setBrandFilter(this.value)" aria-label="Filtrar por Marca o Unidad"
+            class="pl-2.5 pr-6 py-1 rounded-lg text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-300 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-800 transition cursor-pointer">
+            <option value="all">🎬 Marca / Unidad: Todas</option>
+            <option value="hbo">HBO / HBO Max</option>
+            <option value="paramount_plus">Paramount+</option>
+            <option value="cbs">CBS (Network & Studios)</option>
+            <option value="pluto">Pluto TV / AVOD / FAST</option>
+            <option value="dc">DC Studios & DC Comics</option>
+            <option value="wb_pictures">Warner Bros. Pictures & New Line</option>
+            <option value="paramount_pictures">Paramount Pictures & Skydance Anim.</option>
+            <option value="cable">TNT / TBS / Discovery / MTV / Cable</option>
+            <option value="kids">Nickelodeon / Cartoon Network / K&A</option>
+            <option value="sports">Global Sports (CBS Sports / TNT Sports)</option>
+          </select>
+        </div>
+
+        <!-- Selector rápido de Aislar Rama -->
+        <div class="relative flex items-center">
+          <select id="branch-isolate-select" onchange="handleBranchSelectChange(this.value)" aria-label="Aislar rama o división"
+            class="pl-2.5 pr-6 py-1 rounded-lg text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-300 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-800 transition cursor-pointer">
+            <option value="">🔍 Aislar rama: Mapa completo</option>
+            <option value="corp-functions-hub">Rama: Alta Dirección y Funciones Globales</option>
+            <option value="div-dtc-tv">Rama: División 1 — Skydance DTC & TV</option>
+            <option value="regional-intl-hub">Sub-rama: Liderazgo Regional Internacional</option>
+            <option value="fernando-medin">Sub-rama: LATAM & US Hispanic (F. Medin)</option>
+            <option value="andrew-georgiou">Sub-rama: Europe & Africa (A. Georgiou)</option>
+            <option value="div-cable-media">Rama: División 2 — Global Cable Media & TV Studios</option>
+            <option value="div-advertising">Rama: División 3 — Skydance Advertising</option>
+            <option value="div-motion-picture">Rama: División 4 — Motion Picture Group</option>
+            <option value="josh-silverman">Sub-rama: Global Products & Publishing (J. Silverman)</option>
+            <option value="david-decker">Sub-rama: Global Content Sales (D. Decker)</option>
+            <option value="ray-hopkins">Sub-rama: Skydance Distribution (R. Hopkins)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5 shrink-0">
+        <!-- Interruptor Red Matricial (Líneas Punteadas Globales) -->
+        <button type="button" id="matrix-toggle-btn" onclick="toggleMatrixLines()"
+          title="Mostrar u ocultar todas las dependencias matriciales transversales (líneas punteadas)"
+          class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-white text-indigo-800 border border-indigo-300 hover:bg-indigo-50 transition inline-flex items-center gap-1.5 whitespace-nowrap">
+          <span class="w-3.5 border-t-2 border-dashed border-indigo-600 inline-block"></span>
+          <span>Red Matricial</span>
+        </button>
+
+        <!-- Botón Dashboard Equilibrio de Poder -->
+        <button type="button" onclick="openPowerDashboard()"
+          class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-white text-slate-800 border border-slate-300 hover:bg-slate-50 transition inline-flex items-center gap-1.5 whitespace-nowrap">
+          <span>📊</span>
+          <span>Equilibrio de Poder</span>
+        </button>
+
+        <!-- Botón Historial de Novedades / Últimos Anuncios -->
+        <button type="button" onclick="openAnnouncementsModal()"
+          class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-white text-slate-800 border border-slate-300 hover:bg-slate-50 transition inline-flex items-center gap-1.5 whitespace-nowrap">
+          <span>🗞️</span>
+          <span>Últimos Anuncios</span>
+          <span class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-blue-100 text-blue-800">9</span>
+        </button>
+
+        <!-- Menú Exportar (PNG / Excel-CSV) -->
+        <div class="relative" id="export-menu-wrapper">
+          <button type="button" onclick="toggleExportMenu(event)"
+            class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#0f172a] text-white hover:bg-slate-800 transition inline-flex items-center gap-1.5 whitespace-nowrap">
+            <span>⬇️</span>
+            <span>Exportar</span>
+            <svg class="w-3 h-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="export-dropdown" class="hidden fixed sm:absolute right-3 sm:right-0 mt-1.5 w-56 bg-white border border-slate-300 rounded-xl shadow-xl py-1.5 z-50 text-xs">
+            <button type="button" onclick="exportMapToPng()"
+              class="w-full text-left px-3.5 py-2 hover:bg-slate-50 flex items-start gap-2.5 transition">
+              <span class="text-base leading-none">🖼️</span>
+              <div>
+                <div class="font-bold text-slate-900">Imagen PNG (Alta Res.)</div>
+                <div class="text-[11px] text-slate-500">Vista completa lista para PowerPoint</div>
+              </div>
+            </button>
+            <div class="my-1 border-t border-slate-100"></div>
+            <button type="button" onclick="exportOrgToCsv()"
+              class="w-full text-left px-3.5 py-2 hover:bg-slate-50 flex items-start gap-2.5 transition">
+              <span class="text-base leading-none">📑</span>
+              <div>
+                <div class="font-bold text-slate-900">Tabla Excel / CSV</div>
+                <div class="text-[11px] text-slate-500">Base de datos completa con reportes</div>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -335,61 +432,45 @@
     </div>
 
     <!-- =================================================================== -->
-    <!-- MINIMAPA INTERACTIVO (ESQUINA INFERIOR IZQUIERDA)                   -->
+    <!-- BANNER FLOTANTE DE MODO AISLAR RAMA (ZOOM DE ENFOQUE)               -->
     <!-- =================================================================== -->
-    <div id="minimap-container" class="hidden sm:flex flex-col absolute bottom-4 left-4 z-20 bg-white/95 backdrop-blur-md border border-slate-300 rounded-xl shadow-lg overflow-hidden">
-      <div class="px-2.5 py-1 bg-slate-100 border-b border-slate-200 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-slate-500">
-        <span>Minimapa</span>
-        <span id="zoom-level-badge" class="font-mono text-slate-700">100%</span>
-      </div>
-      <svg id="minimap-svg" width="210" height="130" class="block cursor-crosshair bg-slate-50">
-        <g id="minimap-nodes"></g>
-        <rect id="minimap-viewport-rect" x="0" y="0" width="50" height="30" fill="rgba(29, 78, 216, 0.14)" stroke="#1d4ed8" stroke-width="1.5" rx="2" />
-      </svg>
-    </div>
-
-    <!-- =================================================================== -->
-    <!-- CONTROLES FLOTANTES DE ZOOM Y REACOMODO (ESQUINA INFERIOR DERECHA)  -->
-    <!-- =================================================================== -->
-    <div id="zoom-controls" class="absolute bottom-4 right-4 z-20 flex flex-col gap-1.5 bg-white/95 backdrop-blur-md p-1.5 rounded-xl border border-slate-300 shadow-lg transition-all duration-300">
-      <button type="button" onclick="zoomBy(1.22)" title="Acercar (+)"
-        class="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 hover:bg-slate-100 hover:text-slate-950 font-bold text-lg transition">
-        +
-      </button>
-      <button type="button" onclick="zoomBy(0.82)" title="Alejar (-)"
-        class="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 hover:bg-slate-100 hover:text-slate-950 font-bold text-lg transition">
-        −
-      </button>
-      <div class="h-px bg-slate-200 mx-1"></div>
-      <button type="button" onclick="fitToScreen()" title="Ajustar todo el mapa a la pantalla"
-        class="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 hover:bg-slate-100 hover:text-slate-950 transition">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-        </svg>
-      </button>
-      <button type="button" onclick="resetZoom100()" title="Zoom 100%"
-        class="w-9 h-9 rounded-lg flex items-center justify-center text-[11px] font-extrabold text-slate-700 hover:bg-slate-100 hover:text-slate-950 transition">
-        100%
-      </button>
-      <div id="restore-layout-divider" class="h-px bg-slate-200 mx-1"></div>
-      <button id="restore-layout-btn" type="button" onclick="restoreDefaultLayout()" title="Restaurar diseño automático"
-        class="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-        </svg>
+    <div id="isolated-branch-banner" class="hidden absolute top-14 left-1/2 -translate-x-1/2 z-20 bg-indigo-950/95 text-white backdrop-blur-md border border-indigo-500 shadow-lg rounded-full px-4 py-1.5 flex items-center gap-3 text-xs">
+      <span class="inline-flex items-center gap-1.5 font-semibold">
+        <span>🔍</span>
+        <span id="isolated-branch-text">Rama aislada</span>
+      </span>
+      <button type="button" onclick="clearIsolatedBranch()" class="px-2.5 py-0.5 rounded-full bg-white text-indigo-950 font-bold hover:bg-indigo-100 transition">
+        Volver al mapa completo
       </button>
     </div>
 
     <!-- =================================================================== -->
-    <!-- INDICADOR INFERIOR HUD DE MODO SOLO LECTURA + NOTIFICACIÓN FLOTANTE -->
+    <!-- INDICADOR INFERIOR HUD DE MODO SOLO LECTURA                         -->
     <!-- =================================================================== -->
-    <div id="readonly-hud-badge" class="hidden absolute bottom-4 left-1/2 -translate-x-1/2 z-20 bg-[#0f172a]/95 text-white backdrop-blur-md border border-slate-700 shadow-lg rounded-full px-3.5 py-1.5 flex items-center gap-2 text-xs font-semibold pointer-events-none">
+    <div id="readonly-hud-badge" class="hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 z-20 bg-[#0f172a]/95 text-white backdrop-blur-md border border-slate-700 shadow-lg rounded-full px-3.5 py-1.5 items-center gap-2 text-xs font-semibold pointer-events-none">
       <span>🔒</span>
       <span>Modo Solo Lectura</span>
-      <span class="hidden sm:inline text-slate-300 font-normal">• Arrastra para moverte y pulsa cualquier caja para ver detalle</span>
+      <span class="text-slate-300 font-normal">• Arrastra para moverte y pulsa cualquier caja para ver detalle</span>
     </div>
 
-    <div id="status-toast" class="hidden fixed bottom-16 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-xl border border-slate-700 transition-opacity duration-200"></div>
+    <!-- =================================================================== -->
+    <!-- MINIMAPA INTERACTIVO (ESQUINA INFERIOR IZQUIERDA)                   -->
+    <!-- =================================================================== -->
+    <div id="minimap-container" class="hidden sm:block absolute bottom-4 left-4 z-20 w-48 h-32 bg-white/95 backdrop-blur-md border border-slate-300 rounded-xl shadow-lg overflow-hidden cursor-crosshair" title="Minimapa de navegación">
+      <svg id="minimap-svg" class="w-full h-full block"></svg>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- CONTROLES FLOTANTES DE ZOOM Y ENFOQUE (ESQUINA INFERIOR DERECHA)    -->
+    <!-- =================================================================== -->
+    <div class="absolute bottom-4 right-4 z-20 bg-white/95 backdrop-blur-md border border-slate-300 rounded-xl shadow-lg p-1 flex items-center gap-1 text-xs font-bold text-slate-800">
+      <button type="button" onclick="zoomBy(1.2)" title="Acercar (+)" class="w-7 h-7 rounded-lg hover:bg-slate-100 flex items-center justify-center text-base transition">+</button>
+      <span id="zoom-level-badge" class="px-1.5 font-mono text-[11px] text-slate-600 min-w-[42px] text-center">100%</span>
+      <button type="button" onclick="zoomBy(0.83)" title="Alejar (−)" class="w-7 h-7 rounded-lg hover:bg-slate-100 flex items-center justify-center text-base transition">−</button>
+      <div class="w-px h-4 bg-slate-200 mx-0.5"></div>
+      <button type="button" onclick="fitToScreen()" title="Ajustar mapa completo a pantalla" class="px-2 py-1 rounded-lg hover:bg-slate-100 text-[11px] transition">Ajustar</button>
+      <button type="button" onclick="resetZoom100()" title="Restaurar zoom al 100%" class="px-2 py-1 rounded-lg hover:bg-slate-100 text-[11px] transition">100%</button>
+    </div>
 
     <!-- =================================================================== -->
     <!-- LEYENDA COMPACTA FLOTANTE (ESQUINA SUPERIOR IZQUIERDA DEL LIENZO)   -->
@@ -444,66 +525,6 @@
       <!-- Cuerpo desplazable del Panel Lateral -->
       <div class="flex-1 overflow-y-auto custom-scroll p-5 space-y-5 text-sm">
 
-        <!-- Formulario Inline de Edición (visible solo cuando se pulsa Editar ficha) -->
-        <form id="drawer-edit-form" onsubmit="saveNodeEdits(event)" class="hidden p-4 rounded-xl bg-amber-50/70 border border-amber-300 space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-extrabold uppercase tracking-wider text-amber-950">Editar ficha ejecutiva</span>
-            <span class="text-[11px] text-amber-800">Cambios en sesión</span>
-          </div>
-
-          <div>
-            <label for="edit-role-input" class="block text-[11px] font-bold text-slate-700 mb-1">Cargo / Posición</label>
-            <input id="edit-role-input" type="text" required
-              class="w-full px-3 py-1.5 text-xs bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-800" />
-          </div>
-
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <label for="edit-origin-select" class="block text-[11px] font-bold text-slate-700 mb-1">Procedencia</label>
-              <select id="edit-origin-select"
-                class="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-800">
-                <option value="warner">Warner Bros.</option>
-                <option value="paramount">Paramount</option>
-                <option value="external">Skydance / Externo</option>
-                <option value="">Sin asignar (Vacante)</option>
-              </select>
-            </div>
-            <div>
-              <label for="edit-status-select" class="block text-[11px] font-bold text-slate-700 mb-1">Estado</label>
-              <select id="edit-status-select"
-                class="w-full px-2.5 py-1.5 text-xs bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-800">
-                <option value="active">Activo</option>
-                <option value="transition">Interino / Transición</option>
-                <option value="vacant">Vacante</option>
-                <option value="departure">Salida / Retiro</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label for="edit-brands-input" class="block text-[11px] font-bold text-slate-700 mb-1">Marcas, canales o territorios (separados por comas)</label>
-            <input id="edit-brands-input" type="text"
-              class="w-full px-3 py-1.5 text-xs bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-800" />
-          </div>
-
-          <div>
-            <label for="edit-notes-input" class="block text-[11px] font-bold text-slate-700 mb-1">Contexto y notas de la transición</label>
-            <textarea id="edit-notes-input" rows="3"
-              class="w-full px-3 py-1.5 text-xs bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-800"></textarea>
-          </div>
-
-          <div class="flex items-center justify-end gap-2 pt-1">
-            <button type="button" onclick="cancelEditForm()"
-              class="px-3 py-1.5 rounded-lg bg-white text-slate-700 border border-slate-300 text-xs font-semibold hover:bg-slate-50 transition">
-              Cancelar
-            </button>
-            <button type="submit"
-              class="px-3.5 py-1.5 rounded-lg bg-[#0f172a] text-white text-xs font-bold hover:bg-slate-800 transition">
-              Guardar cambios
-            </button>
-          </div>
-        </form>
-
         <!-- Entidad de Procedencia + División / Unidad -->
         <div class="grid grid-cols-1 gap-2.5">
           <div id="drawer-origin-card" class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between gap-3">
@@ -557,15 +578,14 @@
 
       <!-- Pie del Panel Lateral -->
       <div class="px-5 py-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-2 shrink-0">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1.5">
           <button type="button" id="drawer-center-btn"
             class="px-3 py-1.5 rounded-lg bg-[#e6f0f5] text-[#1e293b] border border-[#1e293b]/30 text-xs font-bold hover:brightness-95 transition">
             Centrar en mapa
           </button>
-          <button type="button" id="drawer-edit-btn"
-            class="px-3 py-1.5 rounded-lg bg-amber-50 text-amber-950 border border-amber-300 text-xs font-bold hover:bg-amber-100 transition inline-flex items-center gap-1">
-            <span>✏️</span>
-            <span>Editar ficha</span>
+          <button type="button" id="drawer-isolate-btn"
+            class="hidden px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-900 border border-indigo-300 text-xs font-bold hover:bg-indigo-100 transition">
+            🔍 Aislar rama
           </button>
         </div>
         <button type="button" onclick="closeDetailDrawer()"
@@ -575,6 +595,50 @@
       </div>
     </aside>
 
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 1: DASHBOARD DE EQUILIBRIO DE PODER (WB vs PARAMOUNT vs SKYDANCE)-->
+  <!-- ===================================================================== -->
+  <div id="power-dashboard-modal" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6" onclick="if(event.target===this) closePowerDashboard()">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden">
+      <div class="px-6 py-4 bg-[#0f172a] text-white flex items-center justify-between gap-3 shrink-0">
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-blue-300">Analítica Ejecutiva Post-Fusión</div>
+          <h2 class="text-lg font-extrabold">Dashboard de Equilibrio de Poder y Transición</h2>
+        </div>
+        <button type="button" onclick="closePowerDashboard()" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="power-dashboard-body" class="p-5 sm:p-6 overflow-y-auto custom-scroll space-y-6 text-sm"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 2: HISTORIAL DE NOVEDADES Y ÚLTIMOS COMUNICADOS                 -->
+  <!-- ===================================================================== -->
+  <div id="announcements-modal" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6" onclick="if(event.target===this) closeAnnouncementsModal()">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+      <div class="px-6 py-4 bg-[#0f172a] text-white flex items-center justify-between gap-3 shrink-0">
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-wider text-blue-300">Cronología de Integración (Oct – Nov 2026)</div>
+          <h2 class="text-lg font-extrabold">Historial de Comunicados y Novedades</h2>
+        </div>
+        <button type="button" onclick="closeAnnouncementsModal()" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="announcements-modal-body" class="p-5 sm:p-6 overflow-y-auto custom-scroll space-y-3.5 text-sm"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- NOTIFICACIÓN FLOTANTE (TOAST) PARA EXPORTACIONES                      -->
+  <!-- ===================================================================== -->
+  <div id="toast-notification" class="hidden fixed bottom-5 right-5 z-50 bg-[#0f172a] text-white border border-slate-700 shadow-xl rounded-xl px-4 py-2.5 text-xs font-semibold flex items-center gap-2">
+    <span id="toast-icon">✅</span>
+    <span id="toast-message"></span>
   </div>
 
   <!-- ===================================================================== -->
@@ -3916,46 +3980,119 @@
     ];
 
     // =======================================================================
-    // INDEXACIÓN Y ESTRUCTURA DE ÁRBOL
+    // CRONOLOGÍA DE COMUNICADOS OFICIALES (9 ANUNCIOS POST-ADQUISICIÓN)
     // =======================================================================
+    const ANNOUNCEMENTS_DATA = [
+      {
+        id: 'ann-products-publishing',
+        date: '23 Nov 2026',
+        title: 'Skydance Global Products & Publishing Leadership Team',
+        sender: 'Josh Silverman (President, Global Products & Publishing)',
+        summary: 'Confirmación de los 8 reportes directos en Consumer Products, Skydance Publishing, DC Comics, Theatre Ventures, Creative, Brand Management y Finanzas, además de la salida de Robert Oberschelp.',
+        nodeIds: ['josh-silverman', 'paul-southern', 'amy-kaplan-jarashow', 'jim-lee', 'anne-depies', 'mark-kaufman', 'luis-fernandez', 'melissa-lasdon', 'kedar-nadkarni', 'robert-oberschelp']
+      },
+      {
+        id: 'ann-shauna-mkt',
+        date: '21 Nov 2026',
+        title: 'Organización Global de Marketing DTC & International TV',
+        sender: 'Shauna Spenley (CMO, Global DTC & International TV)',
+        summary: 'Nombramiento de los 3 líderes regionales de marketing (Barry Smyth, Jérôme Bigio y Natalia Akel) y los líderes funcionales globales, junto con la salida próxima de Sarah Labrache, Jose Calderoni y Terry Minogue.',
+        nodeIds: ['shauna-spenley', 'barry-smyth', 'jerome-bigio', 'natalia-akel', 'liz-anderson', 'michelle-garcia', 'michele-neesley', 'pat-lian', 'renata-policicio', 'zach-enterlin', 'malene-sam', 'seth-goren', 'sarah-labrache', 'jose-calderoni', 'terry-minogue']
+      },
+      {
+        id: 'ann-content-sales',
+        date: '20 Nov 2026',
+        title: 'Skydance Global Content Sales Leadership',
+        sender: 'David Decker (Head of Global Content Sales)',
+        summary: 'Definición de los 8 líderes de ventas regionales y transaccionales, 4 líderes globales de soporte comercial y salida de Don McGregor, Mike Takac y Rick De Armas.',
+        nodeIds: ['david-decker', 'mike-aaronson', 'jae-chang', 'david-graber', 'matthias-heinze', 'paty-jasin', 'alison-morris', 'roni-patel', 'angel-yllera', 'nicole-coleman', 'phil-goodhew', 'laura-gross', 'allan-stenhouse', 'don-mcgregor', 'mike-takac', 'rick-de-armas']
+      },
+      {
+        id: 'ann-latam-medin',
+        date: '18 Nov 2026',
+        title: 'Nueva Estructura de Liderazgo para Latinoamérica y US Hispanic',
+        sender: 'Fernando Medin (President & MD, LATAM / US Hispanic)',
+        summary: 'Designación de los 7 líderes regionales y Country Managers (Brasil, México, Colombia y Argentina/Chile), proyectos especiales para Adam Waltuch y Esteban Raffo, interinato de Pablo Zuccarino y salida de Adrián Monsalve, Marcela Doria y Gustavo Minaker.',
+        nodeIds: ['fernando-medin', 'vera-buzanello', 'miguel-cardenas', 'fabricio-proti', 'marcelo-buitrago', 'santiago-maya', 'fernando-ortiz', 'ezequiel-paz', 'monica-pimentel', 'diego-vieira', 'pablo-zuccarino', 'adam-waltuch', 'esteban-raffo', 'vacant-latam-comms', 'adrian-monsalve', 'marcela-doria', 'gustavo-minaker']
+      },
+      {
+        id: 'ann-tv-studios',
+        date: '14 Nov 2026',
+        title: 'Bringing Our Television Studios Together',
+        sender: 'George Cheeks (Co-Chair & CCO, Skydance TV)',
+        summary: 'Fusión de Warner Bros. Television Group y Paramount Television Studios en Warner Bros. Television Studios (operativa a inicios de 2027) bajo la copresidencia de Channing Dungey y Matt Thunell, junto con CBS Studios y CBS Entertainment.',
+        nodeIds: ['george-cheeks', 'channing-dungey', 'matt-thunell', 'david-stapf', 'amy-reisenbach', 'mike-benson']
+      },
+      {
+        id: 'ann-corporate-mkt',
+        date: '12 Nov 2026',
+        title: 'Skydance Marketing Leadership Team',
+        sender: 'Rebecca Mall (Chief Marketing Officer, Skydance)',
+        summary: 'Centralización de Cross-company Marketing & Brand, Franchise & Kids, Data & Analytics, Brand Partnerships y Media, y salida a fin de año de Meg Maro.',
+        nodeIds: ['rebecca-mall', 'annah-zafrani', 'katie-hutchings', 'angie-sharma', 'jamal-salmon', 'michelle-hagen', 'julie-moore', 'malene-sam', 'seth-goren', 'meg-maro']
+      },
+      {
+        id: 'ann-dtc-intl-perrette',
+        date: '07 Nov 2026',
+        title: 'Liderazgo Global DTC & International Regional Leads',
+        sender: 'JB Perrette (Co-Chair & CBO, Skydance DTC y TV)',
+        summary: 'Nombramiento de los 4 líderes regionales internacionales (Andrew Georgiou, James Gibbons, Kasia Kieli y Fernando Medin), roles globales de Trey Turner, Josh Walker, Liz Wright y Jeff Cusson, búsqueda para Pluto/AVOD y 7 salidas ejecutivas.',
+        nodeIds: ['jb-perrette', 'jeff-cusson', 'shauna-spenley', 'trey-turner', 'josh-walker', 'liz-wright', 'head-pluto-avod', 'andrew-georgiou', 'james-gibbons', 'kasia-kieli', 'fernando-medin', 'dan-barnes', 'michael-bishara', 'jamie-cooke', 'domenic-dimeglio', 'marco-nobili', 'pank-patel', 'juan-sola']
+      },
+      {
+        id: 'ann-distribution',
+        date: '03 Nov 2026',
+        title: 'Skydance Distribution Senior Leadership Team',
+        sender: 'Ray Hopkins (Head of Distribution)',
+        summary: 'Estructura unificada de distribución lineal, streaming y afiliados CBS con 9 reportes directos, paso de Jeff Cross a Senior Advisor y 7 salidas confirmadas.',
+        nodeIds: ['ray-hopkins', 'sarah-bergman', 'mickey-carter', 'brad-shipley', 'patrick-cavanaugh', 'rick-baker', 'joe-bahr', 'andrew-borak', 'bob-aguanno', 'john-bagwell', 'jeff-cross', 'david-comisar', 'kurt-davis', 'deena-demasi', 'rivka-golomb', 'kelly-kane', 'ken-kay', 'rich-palermo']
+      },
+      {
+        id: 'ann-advertising-mpg',
+        date: '22 Oct 2026',
+        title: 'Estructura Inicial: Advertising, Cable Media y Motion Picture Group',
+        sender: 'David Ellison & Ynon Kreiz (Cúspide Corporativa)',
+        summary: 'Configuración de las divisiones de Skydance Advertising (Jay Askinasi), Global Cable Media (Channing Dungey) y Motion Picture Group (Dana Goldberg y Josh Greenstein), incluyendo el relevo en DC Studios y animación.',
+        nodeIds: ['david-ellison', 'ynon-kreiz', 'jay-askinasi', 'danielle-carney', 'channing-dungey', 'betsy-sanner-ayala', 'jason-sarlanis', 'tina-perry', 'michael-ouweleen', 'dana-goldberg', 'josh-greenstein', 'jesse-ehrman', 'jeremy-latcham', 'gunn-safran', 'vacant-cbo-mpg', 'ted-lim', 'jeff-goldstein']
+      }
+    ];
+
+    // =======================================================================
+    // ESTADO GLOBAL E ÍNDICES DE NODOS
+    // =======================================================================
+    const appState = {
+      collapsed: new Set(),
+      selectedNodeId: null,
+      hoveredNodeId: null,
+      activeFilter: { type: 'all', value: 'all' },
+      filteredCycleList: [],
+      filteredCycleIdx: 0,
+      isolatedRootId: null,
+      showAllDotted: false,
+      computedPositions: new Map(),
+      edges: [],
+      bounds: { minX: 0, minY: 0, maxX: 1400, maxY: 900 },
+      transform: { x: 0, y: 0, scale: 1 }
+    };
+
     const nodeMap = new Map();
     const childrenMap = new Map();
 
-    NODES_DATA.forEach(n => {
-      nodeMap.set(n.id, n);
-      childrenMap.set(n.id, []);
-    });
-
-    NODES_DATA.forEach(n => {
-      if (n.parentId && childrenMap.has(n.parentId)) {
-        childrenMap.get(n.parentId).push(n.id);
+    NODES_DATA.forEach(node => {
+      nodeMap.set(node.id, node);
+      if (node.parentId) {
+        if (!childrenMap.has(node.parentId)) {
+          childrenMap.set(node.parentId, []);
+        }
+        childrenMap.get(node.parentId).push(node.id);
       }
     });
 
     // =======================================================================
-    // ESTADO GLOBAL DE LA APLICACIÓN
-    // =======================================================================
-    const appState = {
-      collapsed: new Set(),            // IDs de nodos plegados
-      customOffsets: new Map(),        // ID -> { dx, dy } por arrastre manual
-      computedPositions: new Map(),    // ID -> { x, y, w, h, layoutMode }
-      edges: [],                       // Lista de conectores visibles
-      selectedNodeId: null,            // Nodo actualmente seleccionado
-      hoveredNodeId: null,             // Nodo bajo el cursor
-      activeFilter: { type: 'all', value: 'all' }, // { type: 'all'|'origin'|'status', value }
-      filteredCycleList: [],           // Lista de IDs coincidentes con filtro activo
-      filteredCycleIdx: 0,
-      isReadOnly: false,               // Modo Solo Lectura ('No editar')
-      editingNodeId: null,             // Nodo actualmente en edición en el drawer
-      transform: { x: 0, y: 0, scale: 1 },
-      bounds: { minX: 0, minY: 0, maxX: 1600, maxY: 1000 }
-    };
-
-    // =======================================================================
-    // UTILIDADES DE TEXTO, LOGOS DE PROCEDENCIA Y ESTILOS CMAPTOOLS
+    // UTILIDADES DE TEXTO, MEDICIÓN DE CAJAS Y LOGOTIPOS ORIGINALES
     // =======================================================================
     function escapeXml(str) {
-      return String(str || '')
+      return String(str ?? '')
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
@@ -3964,176 +4101,24 @@
     }
 
     function wrapText(text, maxChars) {
-      const words = String(text || '').split(/\s+/).filter(Boolean);
-      if (words.length === 0) return [];
+      const clean = String(text || '').trim();
+      if (!clean) return [];
+      const words = clean.split(/\s+/);
       const lines = [];
-      let current = words[0];
+      let current = '';
 
-      for (let i = 1; i < words.length; i++) {
-        const w = words[i];
-        if ((current + ' ' + w).length <= maxChars) {
-          current += ' ' + w;
+      words.forEach(word => {
+        if (!current) {
+          current = word;
+        } else if (current.length + 1 + word.length <= maxChars) {
+          current += ' ' + word;
         } else {
           lines.push(current);
-          current = w;
+          current = word;
         }
-      }
-      lines.push(current);
+      });
+      if (current) lines.push(current);
       return lines;
-    }
-
-    function getOriginConfig(origin) {
-      switch (origin) {
-        case 'warner':
-          return {
-            label: 'Warner Bros.',
-            fullLabel: 'Warner Bros. Discovery (WBD)',
-            badgeCls: 'bg-[#dbeafe] text-[#0f172a] border border-[#0066cc]',
-            fill: '#dbeafe',
-            stroke: '#0066cc',
-            nameColor: '#0f172a',
-            roleColor: '#1e3a8a',
-            minimapFill: '#0066cc'
-          };
-        case 'paramount':
-          return {
-            label: 'Paramount',
-            fullLabel: 'Paramount Global',
-            badgeCls: 'bg-[#ede9fe] text-[#1e1b4b] border border-[#5b21b6]',
-            fill: '#ede9fe',
-            stroke: '#5b21b6',
-            nameColor: '#1e1b4b',
-            roleColor: '#4c1d95',
-            minimapFill: '#6d28d9'
-          };
-        case 'external':
-          return {
-            label: 'Skydance / Externo',
-            fullLabel: 'Skydance / Incorporación Externa',
-            badgeCls: 'bg-[#d1fae5] text-[#064e3b] border border-[#047857]',
-            fill: '#d1fae5',
-            stroke: '#047857',
-            nameColor: '#064e3b',
-            roleColor: '#065f46',
-            minimapFill: '#059669'
-          };
-        default:
-          return {
-            label: 'Posición Abierta',
-            fullLabel: 'Posición Vacante / Sin titular asignado',
-            badgeCls: 'bg-red-100 text-red-900 border border-red-300',
-            fill: '#fee2e2',
-            stroke: '#b91c1c',
-            nameColor: '#7f1d1d',
-            roleColor: '#991b1b',
-            minimapFill: '#ef4444'
-          };
-      }
-    }
-
-    /**
-     * Genera el logotipo original en formato vectorial SVG correspondiente a la
-     * entidad de origen (Warner Bros., Paramount o Skydance) para la esquina
-     * superior derecha de cada tarjeta.
-     */
-    function buildParamountStarsMarkup() {
-      const cx = 55, cy = 56, rRing = 40.5, totalStars = 22;
-      const startDeg = -212, endDeg = 32;
-      const stars = [];
-      for (let i = 0; i < totalStars; i++) {
-        const deg = startDeg + (i / (totalStars - 1)) * (endDeg - startDeg);
-        const rad = (deg * Math.PI) / 180;
-        const sx = cx + rRing * Math.cos(rad);
-        const sy = cy + rRing * Math.sin(rad);
-        const pts = [];
-        for (let p = 0; p < 10; p++) {
-          const r = p % 2 === 0 ? 3.2 : 1.35;
-          const a = -Math.PI / 2 + (p * Math.PI) / 5;
-          pts.push(`${(sx + r * Math.cos(a)).toFixed(1)},${(sy + r * Math.sin(a)).toFixed(1)}`);
-        }
-        stars.push(`<polygon points="${pts.join(' ')}" fill="#0066cc"/>`);
-      }
-      return stars.join('');
-    }
-
-    const PARAMOUNT_STARS_SVG = buildParamountStarsMarkup();
-
-    function getOriginLogoSvg(origin, cardWidth) {
-      if (origin === 'warner') {
-        const x = cardWidth - 34;
-        return `
-          <g transform="translate(${x}, 5) scale(0.26)">
-            <title>Procedencia: Warner Bros.</title>
-            <path d="M50 2 L78 11 L78 17 L94 23 C94 62 78 89 50 109 C22 89 6 62 6 23 L22 17 L22 11 Z" fill="#ffffff" />
-            <path fill-rule="evenodd" d="M50 2 L78 11 L78 17 L94 23 C94 62 78 89 50 109 C22 89 6 62 6 23 L22 17 L22 11 Z M50 10 L28 17 L28 22 L14 27 C14 60 27 83 50 100 C73 83 86 60 86 27 L72 22 L72 17 Z" fill="#0066cc" />
-            <path d="M18.5 30.5 L25.5 30.5 L31.5 66 L37.5 43 L42.5 43 L46.2 66 L48.8 23.5 L53.5 22.2 L49.8 92.5 C47.5 90.8 45.5 89.2 43.8 87.6 L39.8 61 L34.2 81.5 C24.5 69.5 18.5 52.5 18.5 30.5 Z" fill="#0066cc" />
-            <path fill-rule="evenodd" d="M56.8 21.5 L68.5 25 C77.5 27.5 81.5 35 80.5 43.5 C79.8 49 76.5 52.5 72.5 54 C78 56 81.5 61 79.5 69.5 C77 79.5 69 86.5 56.8 93.5 Z M63.2 29.5 L63.2 49.5 L68.5 49.5 C73 49.5 74.8 46.2 74.8 41.5 C74.8 36.5 72.5 32.5 67.8 31 Z M63.2 57.5 L63.2 81.5 L68.2 78.5 C73 75.5 74.5 70.5 74.2 65.5 C73.8 60.5 71 57.5 66.5 57.5 Z" fill="#0066cc" />
-          </g>
-        `;
-      }
-      if (origin === 'paramount') {
-        const x = cardWidth - 37;
-        return `
-          <g transform="translate(${x}, 5) scale(0.28)">
-            <title>Procedencia: Paramount</title>
-            <circle cx="55" cy="54" r="46.5" fill="#ffffff" />
-            <circle cx="55" cy="56" r="33.5" fill="#0066cc" />
-            ${PARAMOUNT_STARS_SVG}
-            <path d="M25.5 79 L40.5 56.5 L47 63.5 L55 41.5 L64 62.5 L70.5 55.5 L84.5 79 Z" fill="#ffffff" />
-            <path d="M45.5 66 L55 45.5 L62.5 64.5 L57.5 59.5 L55 68.5 L50.5 59.5 Z" fill="#0066cc" />
-            <path d="M35.5 68 L41 59.5 L45 66 L41 64 L38 71 Z" fill="#0066cc" />
-            <text x="55" y="45.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="14.5" letter-spacing="0.2" fill="#ffffff" stroke="#0066cc" stroke-width="2.2" paint-order="stroke">Paramount</text>
-          </g>
-        `;
-      }
-      if (origin === 'external') {
-        const x = cardWidth - 64;
-        return `
-          <g transform="translate(${x}, 6)">
-            <title>Procedencia: Skydance</title>
-            <rect x="0" y="0" width="56" height="20" rx="5" fill="#ffffff" stroke="#047857" stroke-width="1" />
-            <text x="28" y="12.2" text-anchor="middle" font-family="'Times New Roman', 'Didot', Georgia, serif" font-weight="700" font-size="7.4" letter-spacing="0.65" fill="#000000">SKYDANCE</text>
-            <path d="M 5 16.5 Q 28 11.8 51 16.5 Q 28 13.1 5 16.5 Z" fill="#000000" />
-          </g>
-        `;
-      }
-      return '';
-    }
-
-    function getOriginLogoHtml(origin) {
-      if (origin === 'warner') {
-        return `
-          <svg width="34" height="38" viewBox="0 0 100 112" class="shrink-0 drop-shadow-2xs">
-            <path d="M50 2 L78 11 L78 17 L94 23 C94 62 78 89 50 109 C22 89 6 62 6 23 L22 17 L22 11 Z" fill="#ffffff" />
-            <path fill-rule="evenodd" d="M50 2 L78 11 L78 17 L94 23 C94 62 78 89 50 109 C22 89 6 62 6 23 L22 17 L22 11 Z M50 10 L28 17 L28 22 L14 27 C14 60 27 83 50 100 C73 83 86 60 86 27 L72 22 L72 17 Z" fill="#0066cc" />
-            <path d="M18.5 30.5 L25.5 30.5 L31.5 66 L37.5 43 L42.5 43 L46.2 66 L48.8 23.5 L53.5 22.2 L49.8 92.5 C47.5 90.8 45.5 89.2 43.8 87.6 L39.8 61 L34.2 81.5 C24.5 69.5 18.5 52.5 18.5 30.5 Z" fill="#0066cc" />
-            <path fill-rule="evenodd" d="M56.8 21.5 L68.5 25 C77.5 27.5 81.5 35 80.5 43.5 C79.8 49 76.5 52.5 72.5 54 C78 56 81.5 61 79.5 69.5 C77 79.5 69 86.5 56.8 93.5 Z M63.2 29.5 L63.2 49.5 L68.5 49.5 C73 49.5 74.8 46.2 74.8 41.5 C74.8 36.5 72.5 32.5 67.8 31 Z M63.2 57.5 L63.2 81.5 L68.2 78.5 C73 75.5 74.5 70.5 74.2 65.5 C73.8 60.5 71 57.5 66.5 57.5 Z" fill="#0066cc" />
-          </svg>
-        `;
-      }
-      if (origin === 'paramount') {
-        return `
-          <svg width="40" height="36" viewBox="0 0 110 100" class="shrink-0 drop-shadow-2xs">
-            <circle cx="55" cy="54" r="46.5" fill="#ffffff" />
-            <circle cx="55" cy="56" r="33.5" fill="#0066cc" />
-            ${PARAMOUNT_STARS_SVG}
-            <path d="M25.5 79 L40.5 56.5 L47 63.5 L55 41.5 L64 62.5 L70.5 55.5 L84.5 79 Z" fill="#ffffff" />
-            <path d="M45.5 66 L55 45.5 L62.5 64.5 L57.5 59.5 L55 68.5 L50.5 59.5 Z" fill="#0066cc" />
-            <path d="M35.5 68 L41 59.5 L45 66 L41 64 L38 71 Z" fill="#0066cc" />
-            <text x="55" y="45.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="14.5" letter-spacing="0.2" fill="#ffffff" stroke="#0066cc" stroke-width="2.2" paint-order="stroke">Paramount</text>
-          </svg>
-        `;
-      }
-      if (origin === 'external') {
-        return `
-          <svg width="86" height="30" viewBox="0 0 120 44" class="shrink-0 drop-shadow-2xs">
-            <rect x="1" y="1" width="118" height="42" rx="8" fill="#ffffff" stroke="#047857" stroke-width="2" />
-            <text x="60" y="27" text-anchor="middle" font-family="'Times New Roman', 'Didot', Georgia, serif" font-weight="700" font-size="16" letter-spacing="1.4" fill="#000000">SKYDANCE</text>
-            <path d="M 12 36 Q 60 26 108 36 Q 60 28.8 12 36 Z" fill="#000000" />
-          </svg>
-        `;
-      }
-      return '';
     }
 
     function getNodeVisualStyle(node) {
@@ -4141,22 +4126,24 @@
         if (node.status === 'departure') {
           return {
             fill: '#f1f5f9',
-            stroke: '#475569',
-            strokeWidth: 1.8,
-            dash: '5,3',
-            nameColor: '#1e293b',
+            stroke: '#64748b',
+            strokeWidth: 1.7,
+            dashArray: '5,3',
+            titleColor: '#0f172a',
             roleColor: '#475569',
-            minimapFill: '#64748b'
+            pillText: 'SALIDAS',
+            pillBg: '#475569'
           };
         }
         return {
-          fill: '#f8fafc',
-          stroke: '#0f172a',
-          strokeWidth: 2.2,
-          dash: '',
-          nameColor: '#0f172a',
-          roleColor: '#334155',
-          minimapFill: '#0f172a'
+          fill: '#ffffff',
+          stroke: '#1e293b',
+          strokeWidth: 2,
+          dashArray: 'none',
+          titleColor: '#0f172a',
+          roleColor: '#475569',
+          pillText: null,
+          pillBg: null
         };
       }
 
@@ -4164,231 +4151,337 @@
         return {
           fill: '#fee2e2',
           stroke: '#b91c1c',
-          strokeWidth: 1.9,
-          dash: '',
-          nameColor: '#7f1d1d',
+          strokeWidth: 2,
+          dashArray: 'none',
+          titleColor: '#7f1d1d',
           roleColor: '#991b1b',
-          minimapFill: '#ef4444'
+          pillText: 'VACANTE',
+          pillBg: '#dc2626'
         };
       }
 
-      // Colorear cada persona según su entidad de procedencia (Warner, Paramount o Skydance/Externo)
-      const orig = getOriginConfig(node.origin);
+      if (node.status === 'departure') {
+        return {
+          fill: '#f1f5f9',
+          stroke: '#64748b',
+          strokeWidth: 1.6,
+          dashArray: '5,3',
+          titleColor: '#334155',
+          roleColor: '#475569',
+          pillText: 'SALIDA',
+          pillBg: '#475569'
+        };
+      }
+
+      const originPalette = {
+        warner: { fill: '#dbeafe', stroke: '#0066cc', titleColor: '#0f172a', roleColor: '#1e3a8a' },
+        paramount: { fill: '#ede9fe', stroke: '#5b21b6', titleColor: '#1e1b4b', roleColor: '#4c1d95' },
+        external: { fill: '#d1fae5', stroke: '#047857', titleColor: '#064e3b', roleColor: '#065f46' }
+      }[node.origin] || { fill: '#e6f0f5', stroke: '#1e293b', titleColor: '#0f172a', roleColor: '#334155' };
+
+      if (node.status === 'transition') {
+        return {
+          fill: node.origin ? originPalette.fill : '#fef3c7',
+          stroke: '#d97706',
+          strokeWidth: 2,
+          dashArray: 'none',
+          titleColor: originPalette.titleColor,
+          roleColor: originPalette.roleColor,
+          pillText: 'TRANSICIÓN',
+          pillBg: '#d97706'
+        };
+      }
+
       return {
-        fill: orig.fill,
-        stroke: orig.stroke,
-        strokeWidth: node.status === 'transition' ? 2.0 : 1.75,
-        dash: node.status === 'departure' ? '5,3' : '',
-        nameColor: orig.nameColor,
-        roleColor: orig.roleColor,
-        minimapFill: orig.minimapFill
+        fill: originPalette.fill,
+        stroke: originPalette.stroke,
+        strokeWidth: 1.8,
+        dashArray: 'none',
+        titleColor: originPalette.titleColor,
+        roleColor: originPalette.roleColor,
+        pillText: null,
+        pillBg: null
       };
     }
 
-    // =======================================================================
-    // MOTOR DE LAYOUT JERÁRQUICO HÍBRIDO SIN SOLAPAMIENTOS
-    // =======================================================================
-    const HORIZONTAL_BRANCH_IDS = new Set([
-      'david-ellison',
-      'ynon-kreiz',
-      'ray-hopkins',
-      'david-decker',
-      'div-dtc-tv',
-      'jb-perrette',
-      'shauna-spenley',
-      'george-cheeks',
-      'regional-intl-hub',
-      'div-cable-media',
-      'channing-dungey',
-      'div-advertising',
-      'div-motion-picture',
-      'mpg-creative-hub'
-    ]);
-
     function measureNodeBox(node) {
-      const w = 244;
-      const nameLines = wrapText(node.name, node.isGroupNode ? 28 : 27);
-      const rawRoleLines = wrapText(node.role, node.isGroupNode ? 34 : 34);
-      const roleLines = rawRoleLines.slice(0, 3);
-      if (rawRoleLines.length > 3 && roleLines[2]) {
-        roleLines[2] = roleLines[2].replace(/\s+\S*$/, '') + '…';
-      }
+      const style = getNodeVisualStyle(node);
+      const hasLogo = Boolean(node.origin);
+      const w = node.isGroupNode ? 255 : 245;
+      const nameMaxChars = hasLogo ? 24 : 30;
+      const roleMaxChars = 35;
 
-      const hasTopBadge = !node.isGroupNode && (node.origin || node.status !== 'active');
-      const topPad = hasTopBadge ? 32 : 18;
-      const h = Math.max(hasTopBadge ? 74 : 58, topPad + nameLines.length * 16 + roleLines.length * 13.5 + 11);
-      return { w, h, nameLines, roleLines, topPad };
+      const nameLines = wrapText(node.name, nameMaxChars);
+      const roleLines = wrapText(node.role, roleMaxChars);
+
+      let h = 12;
+      if (style.pillText) h += 16;
+      h += Math.max(1, nameLines.length) * 16;
+      h += 4;
+      h += Math.max(1, roleLines.length) * 13;
+      h += 12;
+
+      return { w, h, nameLines, roleLines };
     }
 
+    function getOriginLogoSvg(origin, x, y, w) {
+      if (!origin) return '';
+      if (origin === 'warner') {
+        const lx = x + w - 27;
+        const ly = y + 7;
+        return `
+          <g transform="translate(${lx}, ${ly}) scale(0.19)">
+            <path d="M50 3 L78 12 L78 18 L94 24 C94 62 78 89 50 109 C22 89 6 62 6 24 L22 18 L22 12 Z" fill="#ffffff"/>
+            <path fill-rule="evenodd" d="M50 3 L78 12 L78 18 L94 24 C94 62 78 89 50 109 C22 89 6 62 6 24 L22 18 L22 12 Z M50 10.5 L28 17.5 L28 22.5 L13.5 27.5 C13.5 60 27 83 50 100 C73 83 86.5 60 86.5 27.5 L72 22.5 L72 17.5 Z" fill="#000000"/>
+            <path d="M18.5 31 L25.5 31 L31.5 66 L37.5 43 L42.5 43 L46.2 66 L48.8 24 L53.5 22.5 L49.8 92.5 C47.5 90.8 45.5 89.2 43.8 87.6 L39.8 61 L34.2 81.5 C24.5 69.5 18.5 52.5 18.5 31 Z" fill="#000000"/>
+            <path fill-rule="evenodd" d="M56.8 22 L68.5 25.5 C77.5 28 81.5 35.5 80.5 44 C79.8 49.5 76.5 53 72.5 54.5 C78 56.5 81.5 61.5 79.5 70 C77 80 69 87 56.8 94 Z M63.2 30 L63.2 50 L68.5 50 C73 50 74.8 46.7 74.8 42 C74.8 37 72.5 33 67.8 31.5 Z M63.2 58 L63.2 82 L68.2 79 C73 76 74.5 71 74.2 66 C73.8 61 71 58 66.5 58 Z" fill="#000000"/>
+          </g>
+        `;
+      }
+      if (origin === 'paramount') {
+        const lx = x + w - 29;
+        const ly = y + 7;
+        return `
+          <g transform="translate(${lx}, ${ly}) scale(0.21)">
+            <path d="M 13.5 90 A 47 47 0 1 1 86.5 90 Z" fill="#0064FF"/>
+            <path d="M 13 90 L 25 75 L 27.5 74 L 42 54.5 L 44.5 52.5 L 48.5 45.5 Q 50.5 43.2 52.8 45.5 L 56.5 49 L 67 66.5 L 71 68.5 L 87 90 Z" fill="#ffffff"/>
+            <path d="M 30 86.5 C 29 85.5 29.5 83.5 31 81.5 L 42.5 64.5 C 43 64 43.5 64.5 43 65.5 L 36.5 77.5 L 42.5 69.5 L 50.8 47.8 L 51.8 48.2 L 64.5 69.5 L 67.5 72 L 73.5 77.5 L 66 73.5 L 65.5 76.5 L 70 83.5 L 85.5 90 L 58 90 L 59.5 86 L 68.5 88.5 L 65.5 79.5 L 64 78.5 L 65 73 L 61.5 69.5 L 51.5 52 L 46 61 L 47 62.5 L 41.5 74.5 L 52.5 75.5 L 49.5 84.5 L 49.5 90 L 34 90 L 39 78 L 32 86.5 Z" fill="#0064FF"/>
+            <g fill="#ffffff">
+              <circle cx="16.9" cy="71.6" r="3.1"/><circle cx="12.9" cy="59.4" r="3.1"/><circle cx="13.2" cy="46.6" r="3.1"/>
+              <circle cx="17.9" cy="34.7" r="3.1"/><circle cx="26.2" cy="25.0" r="3.1"/><circle cx="37.4" cy="18.7" r="3.1"/>
+              <circle cx="50.0" cy="16.5" r="3.2"/><circle cx="62.6" cy="18.7" r="3.1"/><circle cx="73.8" cy="25.0" r="3.1"/>
+              <circle cx="82.1" cy="34.7" r="3.1"/><circle cx="86.8" cy="46.6" r="3.1"/><circle cx="87.1" cy="59.4" r="3.1"/>
+              <circle cx="83.1" cy="71.6" r="3.1"/>
+            </g>
+          </g>
+        `;
+      }
+      if (origin === 'external') {
+        const lx = x + w - 42;
+        const ly = y + 7;
+        return `
+          <g transform="translate(${lx}, ${ly}) scale(0.28)">
+            <rect x="1" y="1" width="118" height="42" rx="8" fill="#ffffff" stroke="#047857" stroke-width="2.5"/>
+            <text x="60" y="27" text-anchor="middle" font-family="'Times New Roman', Georgia, serif" font-weight="700" font-size="16" letter-spacing="1.4" fill="#000000">SKYDANCE</text>
+            <path d="M 12 36 Q 60 26 108 36 Q 60 28.8 12 36 Z" fill="#000000"/>
+          </g>
+        `;
+      }
+      return '';
+    }
+
+    function getOriginConfig(origin) {
+      if (origin === 'warner') {
+        return {
+          label: 'Warner Bros.',
+          fullLabel: 'Warner Bros. / WBD',
+          badgeCls: 'bg-[#dbeafe] text-[#0f172a] border border-[#0066cc]'
+        };
+      }
+      if (origin === 'paramount') {
+        return {
+          label: 'Paramount',
+          fullLabel: 'Paramount Global',
+          badgeCls: 'bg-[#ede9fe] text-[#1e1b4b] border border-[#5b21b6]'
+        };
+      }
+      if (origin === 'external') {
+        return {
+          label: 'Skydance / Externo',
+          fullLabel: 'Skydance / Incorporación Externa',
+          badgeCls: 'bg-[#d1fae5] text-[#064e3b] border border-[#047857]'
+        };
+      }
+      return {
+        label: 'Corporativo / Vacante',
+        fullLabel: 'Estructura Corporativa / Pendiente de Asignación',
+        badgeCls: 'bg-slate-100 text-slate-700 border border-slate-300'
+      };
+    }
+
+    function getOriginLogoHtml(origin) {
+      if (origin === 'warner') {
+        return `
+          <svg width="32" height="36" viewBox="0 0 100 112" class="block">
+            <path d="M50 3 L78 12 L78 18 L94 24 C94 62 78 89 50 109 C22 89 6 62 6 24 L22 18 L22 12 Z" fill="#ffffff"/>
+            <path fill-rule="evenodd" d="M50 3 L78 12 L78 18 L94 24 C94 62 78 89 50 109 C22 89 6 62 6 24 L22 18 L22 12 Z M50 10.5 L28 17.5 L28 22.5 L13.5 27.5 C13.5 60 27 83 50 100 C73 83 86.5 60 86.5 27.5 L72 22.5 L72 17.5 Z" fill="#000000"/>
+            <path d="M18.5 31 L25.5 31 L31.5 66 L37.5 43 L42.5 43 L46.2 66 L48.8 24 L53.5 22.5 L49.8 92.5 C47.5 90.8 45.5 89.2 43.8 87.6 L39.8 61 L34.2 81.5 C24.5 69.5 18.5 52.5 18.5 31 Z" fill="#000000"/>
+            <path fill-rule="evenodd" d="M56.8 22 L68.5 25.5 C77.5 28 81.5 35.5 80.5 44 C79.8 49.5 76.5 53 72.5 54.5 C78 56.5 81.5 61.5 79.5 70 C77 80 69 87 56.8 94 Z M63.2 30 L63.2 50 L68.5 50 C73 50 74.8 46.7 74.8 42 C74.8 37 72.5 33 67.8 31.5 Z M63.2 58 L63.2 82 L68.2 79 C73 76 74.5 71 74.2 66 C73.8 61 71 58 66.5 58 Z" fill="#000000"/>
+          </svg>
+        `;
+      }
+      if (origin === 'paramount') {
+        return `
+          <svg width="36" height="34" viewBox="0 0 100 94" class="block">
+            <path d="M 13.5 90 A 47 47 0 1 1 86.5 90 Z" fill="#0064FF"/>
+            <path d="M 13 90 L 25 75 L 27.5 74 L 42 54.5 L 44.5 52.5 L 48.5 45.5 Q 50.5 43.2 52.8 45.5 L 56.5 49 L 67 66.5 L 71 68.5 L 87 90 Z" fill="#ffffff"/>
+            <path d="M 30 86.5 C 29 85.5 29.5 83.5 31 81.5 L 42.5 64.5 C 43 64 43.5 64.5 43 65.5 L 36.5 77.5 L 42.5 69.5 L 50.8 47.8 L 51.8 48.2 L 64.5 69.5 L 67.5 72 L 73.5 77.5 L 66 73.5 L 65.5 76.5 L 70 83.5 L 85.5 90 L 58 90 L 59.5 86 L 68.5 88.5 L 65.5 79.5 L 64 78.5 L 65 73 L 61.5 69.5 L 51.5 52 L 46 61 L 47 62.5 L 41.5 74.5 L 52.5 75.5 L 49.5 84.5 L 49.5 90 L 34 90 L 39 78 L 32 86.5 Z" fill="#0064FF"/>
+            <g fill="#ffffff">
+              <circle cx="16.9" cy="71.6" r="3.1"/><circle cx="12.9" cy="59.4" r="3.1"/><circle cx="13.2" cy="46.6" r="3.1"/>
+              <circle cx="17.9" cy="34.7" r="3.1"/><circle cx="26.2" cy="25.0" r="3.1"/><circle cx="37.4" cy="18.7" r="3.1"/>
+              <circle cx="50.0" cy="16.5" r="3.2"/><circle cx="62.6" cy="18.7" r="3.1"/><circle cx="73.8" cy="25.0" r="3.1"/>
+              <circle cx="82.1" cy="34.7" r="3.1"/><circle cx="86.8" cy="46.6" r="3.1"/><circle cx="87.1" cy="59.4" r="3.1"/>
+              <circle cx="83.1" cy="71.6" r="3.1"/>
+            </g>
+          </svg>
+        `;
+      }
+      if (origin === 'external') {
+        return `
+          <svg width="58" height="24" viewBox="0 0 120 44" class="block">
+            <rect x="1" y="1" width="118" height="42" rx="8" fill="#ffffff" stroke="#047857" stroke-width="2"/>
+            <text x="60" y="27" text-anchor="middle" font-family="'Times New Roman', Georgia, serif" font-weight="700" font-size="16" letter-spacing="1.4" fill="#000000">SKYDANCE</text>
+            <path d="M 12 36 Q 60 26 108 36 Q 60 28.8 12 36 Z" fill="#000000"/>
+          </svg>
+        `;
+      }
+      return '';
+    }
+
+    // =======================================================================
+    // MOTOR DE CÁLCULO DE POSICIONES HÍBRIDO (COLUMNAS VERTICALES + TRONCOS)
+    // =======================================================================
+    // Nodos que abren columnas principales en paralelo; todo el resto se
+    // expande en cascada vertical (estilo columna/espina lateral).
+    const HORIZONTAL_BRANCH_PARENTS = new Set([
+      'ynon-kreiz',          // 5 grandes pilares corporativos y divisiones
+      'div-dtc-tv',          // JB Perrette, Casey Bloys y George Cheeks
+      'jb-perrette',         // Funciones Globales, Liderazgo Regional y Salidas
+      'regional-intl-hub',   // Europe & Africa, APAC & MENA, Poland y LATAM/USH
+      'channing-dungey',     // Segmentos de Global Cable Media + Howard Lee
+      'div-motion-picture',  // Dana Goldberg y Josh Greenstein
+      'mpg-creative-hub'     // Estudios cinematográficos, DC, Animación y Sellos
+    ]);
+
     function recomputeAndRender() {
-      const rootId = 'david-ellison';
-      const measurements = new Map();
-      const subtreeSizes = new Map();
+      const positions = new Map();
+      const edges = [];
 
-      // 1. Medir todos los nodos visibles y calcular dimensiones de subárboles
-      function measureSubtree(id) {
-        const node = nodeMap.get(id);
-        if (!node) return { w: 0, h: 0 };
+      const H_GAP = 32;
+      const V_GAP = 54;
+      const SPINE_OFFSET_X = 16;
+      const ARM_LEN = 58;
+      const V_STACK_GAP = 16;
+      const V_FIRST_CHILD_GAP = 22;
+
+      function computeSubtree(nodeId) {
+        const node = nodeMap.get(nodeId);
         const box = measureNodeBox(node);
-        measurements.set(id, box);
+        const rawChildren = childrenMap.get(nodeId) || [];
+        const isCollapsed = appState.collapsed.has(nodeId);
 
-        const rawChildren = childrenMap.get(id) || [];
-        const visibleChildren = appState.collapsed.has(id) ? [] : rawChildren;
-
-        if (visibleChildren.length === 0) {
-          subtreeSizes.set(id, { w: box.w, h: box.h, mode: 'leaf' });
-          return subtreeSizes.get(id);
+        if (isCollapsed || rawChildren.length === 0) {
+          return {
+            nodeId,
+            box,
+            width: box.w,
+            height: box.h,
+            children: [],
+            layoutMode: 'leaf'
+          };
         }
 
-        const childSizes = visibleChildren.map(cid => measureSubtree(cid));
-        const isHorizontal = HORIZONTAL_BRANCH_IDS.has(id);
+        const childTrees = rawChildren.map(cid => computeSubtree(cid));
+        const isHorizontal = HORIZONTAL_BRANCH_PARENTS.has(nodeId);
 
         if (isHorizontal) {
-          const gapX = 34;
-          const levelGapY = 84;
-          const totalChildrenW = childSizes.reduce((acc, s) => acc + s.w, 0) + gapX * (childSizes.length - 1);
-          const maxChildH = Math.max(...childSizes.map(s => s.h));
-          const size = {
-            w: Math.max(box.w, totalChildrenW),
-            h: box.h + levelGapY + maxChildH,
-            mode: 'horizontal'
+          const totalChildrenW = childTrees.reduce((sum, ct) => sum + ct.width, 0) + H_GAP * (childTrees.length - 1);
+          const maxChildH = Math.max(...childTrees.map(ct => ct.height));
+          return {
+            nodeId,
+            box,
+            width: Math.max(box.w, totalChildrenW),
+            height: box.h + V_GAP + maxChildH,
+            children: childTrees,
+            layoutMode: 'horizontal',
+            totalChildrenW
           };
-          subtreeSizes.set(id, size);
-          return size;
         } else {
-          const indentX = 30;
-          const firstGapY = 56;
-          const stackGapY = 36;
-          const maxChildW = Math.max(...childSizes.map(s => s.w));
-          const totalStackH = childSizes.reduce((acc, s) => acc + s.h, 0) + stackGapY * (childSizes.length - 1);
-          const size = {
-            w: Math.max(box.w, indentX + maxChildW),
-            h: box.h + firstGapY + totalStackH,
-            mode: 'vertical'
+          const maxChildSubtreeW = Math.max(...childTrees.map(ct => ct.width));
+          const totalChildrenH = childTrees.reduce((sum, ct) => sum + ct.height, 0) + V_STACK_GAP * (childTrees.length - 1);
+          return {
+            nodeId,
+            box,
+            width: Math.max(box.w, SPINE_OFFSET_X + ARM_LEN + maxChildSubtreeW),
+            height: box.h + V_FIRST_CHILD_GAP + totalChildrenH,
+            children: childTrees,
+            layoutMode: 'vertical'
           };
-          subtreeSizes.set(id, size);
-          return size;
         }
       }
 
-      measureSubtree(rootId);
+      function assignCoordinates(tree, leftX, topY) {
+        const isHorizontal = tree.layoutMode === 'horizontal';
+        const nodeX = isHorizontal ? (leftX + (tree.width - tree.box.w) / 2) : leftX;
+        const nodeY = topY;
 
-      // 2. Posicionar cada nodo sin solapamientos
-      appState.computedPositions.clear();
-
-      function placeSubtree(id, leftX, topY) {
-        const box = measurements.get(id);
-        const sub = subtreeSizes.get(id);
-        if (!box || !sub) return;
-
-        const offset = appState.customOffsets.get(id) || { dx: 0, dy: 0 };
-        const rawChildren = childrenMap.get(id) || [];
-        const visibleChildren = appState.collapsed.has(id) ? [] : rawChildren;
-
-        let nodeX = leftX;
-        if (sub.mode === 'horizontal' || sub.mode === 'leaf') {
-          nodeX = leftX + (sub.w - box.w) / 2;
-        }
-
-        const finalX = nodeX + offset.dx;
-        const finalY = topY + offset.dy;
-
-        appState.computedPositions.set(id, {
-          x: finalX,
-          y: finalY,
-          w: box.w,
-          h: box.h,
-          nameLines: box.nameLines,
-          roleLines: box.roleLines,
-          topPad: box.topPad,
-          mode: sub.mode
+        positions.set(tree.nodeId, {
+          x: nodeX,
+          y: nodeY,
+          w: tree.box.w,
+          h: tree.box.h,
+          nameLines: tree.box.nameLines,
+          roleLines: tree.box.roleLines
         });
 
-        if (visibleChildren.length === 0) return;
+        if (tree.children.length === 0) return;
 
-        if (sub.mode === 'horizontal') {
-          const gapX = 34;
-          const levelGapY = 84;
-          const totalChildrenW = visibleChildren.reduce((acc, cid) => acc + subtreeSizes.get(cid).w, 0) + gapX * (visibleChildren.length - 1);
-          let curX = leftX + (sub.w - totalChildrenW) / 2;
-          const childTopY = topY + box.h + levelGapY;
-
-          visibleChildren.forEach(cid => {
-            const cSub = subtreeSizes.get(cid);
-            placeSubtree(cid, curX, childTopY);
-            curX += cSub.w + gapX;
+        if (isHorizontal) {
+          const childTopStart = topY + tree.box.h + V_GAP;
+          let curX = leftX + (tree.width - tree.totalChildrenW) / 2;
+          tree.children.forEach(ct => {
+            assignCoordinates(ct, curX, childTopStart);
+            const childNode = nodeMap.get(ct.nodeId);
+            edges.push({
+              fromId: tree.nodeId,
+              toId: ct.nodeId,
+              label: childNode.edgeLabel || '',
+              isVerticalSpine: false
+            });
+            curX += ct.width + H_GAP;
           });
         } else {
-          const indentX = 30;
-          const firstGapY = 56;
-          const stackGapY = 36;
-          let curY = topY + box.h + firstGapY;
-          const childLeftX = leftX + indentX;
+          const spineX = nodeX + SPINE_OFFSET_X;
+          const childLeftX = spineX + ARM_LEN;
+          let curY = topY + tree.box.h + V_FIRST_CHILD_GAP;
 
-          visibleChildren.forEach(cid => {
-            const cSub = subtreeSizes.get(cid);
-            placeSubtree(cid, childLeftX, curY);
-            curY += cSub.h + stackGapY;
+          tree.children.forEach(ct => {
+            assignCoordinates(ct, childLeftX, curY);
+            const childNode = nodeMap.get(ct.nodeId);
+            edges.push({
+              fromId: tree.nodeId,
+              toId: ct.nodeId,
+              label: childNode.edgeLabel || '',
+              isVerticalSpine: true,
+              spineX
+            });
+            curY += ct.height + V_STACK_GAP;
           });
         }
       }
 
-      placeSubtree(rootId, 60, 60);
+      const rootIdToRender = (appState.isolatedRootId && nodeMap.has(appState.isolatedRootId))
+        ? appState.isolatedRootId
+        : 'david-ellison';
+      const rootTree = computeSubtree(rootIdToRender);
+      assignCoordinates(rootTree, 60, 50);
 
-      // 3. Calcular límites globales del mapa y generar aristas
       let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-      appState.computedPositions.forEach(pos => {
-        if (pos.x < minX) minX = pos.x;
-        if (pos.y < minY) minY = pos.y;
-        if (pos.x + pos.w > maxX) maxX = pos.x + pos.w;
-        if (pos.y + pos.h > maxY) maxY = pos.y + pos.h;
+      positions.forEach(pos => {
+        minX = Math.min(minX, pos.x);
+        minY = Math.min(minY, pos.y);
+        maxX = Math.max(maxX, pos.x + pos.w);
+        maxY = Math.max(maxY, pos.y + pos.h);
       });
 
-      if (!isFinite(minX)) {
-        minX = 0; minY = 0; maxX = 1200; maxY = 800;
-      }
-      appState.bounds = { minX: minX - 80, minY: minY - 80, maxX: maxX + 80, maxY: maxY + 80 };
-
-      appState.edges = [];
-      appState.computedPositions.forEach((childPos, cid) => {
-        const node = nodeMap.get(cid);
-        if (!node || !node.parentId) return;
-        const parentPos = appState.computedPositions.get(node.parentId);
-        if (!parentPos) return;
-
-        let pathD = '';
-        let lx = 0;
-        let ly = 0;
-
-        if (parentPos.mode === 'horizontal') {
-          const x1 = parentPos.x + parentPos.w / 2;
-          const y1 = parentPos.y + parentPos.h;
-          const x2 = childPos.x + childPos.w / 2;
-          const y2 = childPos.y;
-          const midY = y1 + (y2 - y1) * 0.48;
-          pathD = `M ${x1} ${y1} L ${x1} ${midY} L ${x2} ${midY} L ${x2} ${y2}`;
-          lx = x2;
-          ly = midY + (y2 - midY) * 0.52;
-        } else {
-          // Conector lateral izquierdo estilo árbol / CmapTools para pilas verticales
-          const trunkX = parentPos.x + 16;
-          const y1 = parentPos.y + parentPos.h;
-          const x2 = childPos.x;
-          const y2 = childPos.y + childPos.h / 2;
-          pathD = `M ${trunkX} ${y1} L ${trunkX} ${y2} L ${x2} ${y2}`;
-          lx = trunkX + (x2 - trunkX) * 0.5 + 34;
-          ly = y2 - 10;
-        }
-
-        appState.edges.push({
-          source: node.parentId,
-          target: cid,
-          label: node.edgeLabel || '',
-          pathD,
-          lx,
-          ly
-        });
-      });
+      appState.computedPositions = positions;
+      appState.edges = edges;
+      appState.bounds = {
+        minX: minX - 80,
+        minY: minY - 60,
+        maxX: maxX + 80,
+        maxY: maxY + 80
+      };
 
       renderEdges();
       renderNodes();
@@ -4397,173 +4490,152 @@
     }
 
     // =======================================================================
-    // RENDERIZADO SVG DE ARISTAS Y NODOS CMAPTOOLS
+    // RENDERIZADO DE CONECTORES Y NODOS EN EL SVG
     // =======================================================================
     function renderEdges() {
-      const edgesLayer = document.getElementById('edges-layer');
-      edgesLayer.innerHTML = appState.edges.map(edge => {
-        const labelText = edge.label ? escapeXml(edge.label) : '';
-        const labelW = Math.max(46, labelText.length * 6.1 + 14);
-        const labelSvg = labelText ? `
-          <g transform="translate(${edge.lx}, ${edge.ly})">
-            <rect x="${-labelW / 2}" y="-9" width="${labelW}" height="18" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.9" />
-            <text x="0" y="3.5" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">${labelText}</text>
-          </g>
-        ` : '';
+      const layer = document.getElementById('edges-layer');
+      const parts = [];
 
-        return `
-          <g class="cmap-edge-group" data-source="${edge.source}" data-target="${edge.target}">
-            <path class="edge-line" d="${edge.pathD}" fill="none" stroke="#475569" stroke-width="1.55" marker-end="url(#arrow-default)" />
-            ${labelSvg}
-          </g>
-        `;
-      }).join('');
+      appState.edges.forEach(edge => {
+        const from = appState.computedPositions.get(edge.fromId);
+        const to = appState.computedPositions.get(edge.toId);
+        if (!from || !to) return;
+
+        if (edge.isVerticalSpine) {
+          const sx = edge.spineX;
+          const y1 = from.y + from.h;
+          const x2 = to.x;
+          const y2 = to.y + to.h / 2;
+
+          const d = `M ${sx} ${y1} L ${sx} ${y2} L ${x2 - 2} ${y2}`;
+          const labelText = edge.label;
+          const labelX = sx + (x2 - sx) * 0.45;
+          const labelY = y2;
+          const labelW = Math.min(52, Math.max(36, labelText.length * 4.8 + 8));
+
+          parts.push(`
+            <g class="cmap-edge-group" data-from="${edge.fromId}" data-to="${edge.toId}">
+              <path d="${d}" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-default)" />
+              ${labelText ? `
+                <rect x="${labelX - labelW / 2}" y="${labelY - 7}" width="${labelW}" height="14" rx="3.5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.7" />
+                <text x="${labelX}" y="${labelY + 2.8}" text-anchor="middle" font-size="8.5" font-weight="600" fill="#334155">${escapeXml(labelText)}</text>
+              ` : ''}
+            </g>
+          `);
+        } else {
+          const x1 = from.x + from.w / 2;
+          const y1 = from.y + from.h;
+          const x2 = to.x + to.w / 2;
+          const y2 = to.y;
+
+          const midY = y1 + (y2 - y1) * 0.48;
+          const d = `M ${x1} ${y1} L ${x1} ${midY} L ${x2} ${midY} L ${x2} ${y2 - 2}`;
+
+          const labelText = edge.label;
+          const labelX = x2;
+          const labelY = midY + (y2 - midY) * 0.52;
+          const labelW = Math.max(44, labelText.length * 5.6 + 12);
+
+          parts.push(`
+            <g class="cmap-edge-group" data-from="${edge.fromId}" data-to="${edge.toId}">
+              <path d="${d}" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-default)" />
+              ${labelText ? `
+                <rect x="${labelX - labelW / 2}" y="${labelY - 7.5}" width="${labelW}" height="15" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.7" />
+                <text x="${labelX}" y="${labelY + 3.2}" text-anchor="middle" font-size="9.5" font-weight="600" fill="#334155">${escapeXml(labelText)}</text>
+              ` : ''}
+            </g>
+          `);
+        }
+      });
+
+      layer.innerHTML = parts.join('');
     }
 
     function renderNodes() {
-      const nodesLayer = document.getElementById('nodes-layer');
-      const fragments = [];
+      const layer = document.getElementById('nodes-layer');
+      const parts = [];
 
-      appState.computedPositions.forEach((pos, id) => {
-        const node = nodeMap.get(id);
+      appState.computedPositions.forEach((pos, nodeId) => {
+        const node = nodeMap.get(nodeId);
         if (!node) return;
         const style = getNodeVisualStyle(node);
-        const orig = getOriginConfig(node.origin);
-        const children = childrenMap.get(id) || [];
-        const hasChildren = children.length > 0;
-        const isCollapsed = appState.collapsed.has(id);
+        const children = childrenMap.get(nodeId) || [];
+        const isCollapsed = appState.collapsed.has(nodeId);
 
-        // Etiqueta superior izquierda (Procedencia o Estado especial)
-        let topBadgeSvg = '';
-        if (!node.isGroupNode) {
-          if (node.status === 'vacant') {
-            topBadgeSvg = `
-              <rect x="10" y="7" width="58" height="15" rx="4" fill="#dc2626" />
-              <text x="39" y="17.2" text-anchor="middle" font-size="8.5" font-weight="800" fill="#ffffff" letter-spacing="0.4">VACANTE</text>
-            `;
-          } else if (node.status === 'transition') {
-            topBadgeSvg = `
-              <rect x="10" y="7" width="72" height="15" rx="4" fill="#d97706" />
-              <text x="46" y="17.2" text-anchor="middle" font-size="8.5" font-weight="800" fill="#ffffff" letter-spacing="0.4">TRANSICIÓN</text>
-            `;
-          } else if (node.status === 'departure') {
-            topBadgeSvg = `
-              <rect x="10" y="7" width="52" height="15" rx="4" fill="#475569" />
-              <text x="36" y="17.2" text-anchor="middle" font-size="8.5" font-weight="800" fill="#ffffff" letter-spacing="0.4">SALIDA</text>
-            `;
-          } else if (node.origin) {
-            const pillText = orig.label.toUpperCase();
-            const pillW = Math.max(54, pillText.length * 5.6 + 12);
-            topBadgeSvg = `
-              <rect x="10" y="7" width="${pillW}" height="15" rx="4" fill="rgba(255,255,255,0.82)" stroke="${style.stroke}" stroke-width="0.9" />
-              <text x="${10 + pillW / 2}" y="17.2" text-anchor="middle" font-size="8.2" font-weight="700" fill="${style.nameColor}" letter-spacing="0.3">${escapeXml(pillText)}</text>
-            `;
-          }
+        let curTextY = pos.y + 18;
+        let pillSvg = '';
+        if (style.pillText) {
+          const pillW = style.pillText.length * 6.2 + 12;
+          pillSvg = `
+            <rect x="${pos.x + 10}" y="${pos.y + 8}" width="${pillW}" height="14" rx="4" fill="${style.pillBg}" />
+            <text x="${pos.x + 10 + pillW / 2}" y="${pos.y + 17.8}" text-anchor="middle" font-size="8.5" font-weight="800" fill="#ffffff" letter-spacing="0.4">${style.pillText}</text>
+          `;
+          curTextY += 16;
         }
 
-        // Logotipo original de entidad en la esquina superior derecha
-        const logoSvg = !node.isGroupNode && node.origin ? getOriginLogoSvg(node.origin, pos.w) : '';
+        const nameSvg = pos.nameLines.map((line, i) => `
+          <text x="${pos.x + 10}" y="${curTextY + i * 16}" font-size="12.5" font-weight="800" fill="${style.titleColor}">${escapeXml(line)}</text>
+        `).join('');
 
-        // Líneas de nombre
-        let curY = pos.topPad + 11;
+        const roleStartY = curTextY + pos.nameLines.length * 16 + 2;
+        const roleSvg = pos.roleLines.map((line, i) => `
+          <text x="${pos.x + 10}" y="${roleStartY + i * 13}" font-size="10.5" font-weight="500" fill="${style.roleColor}">${escapeXml(line)}</text>
+        `).join('');
 
-        const nameSvg = pos.nameLines.map(line => {
-          const el = `<text x="12" y="${curY}" font-size="${node.isGroupNode ? 13 : 12.2}" font-weight="800" fill="${style.nameColor}">${escapeXml(line)}</text>`;
-          curY += 16;
-          return el;
-        }).join('');
-
-        curY += 1;
-        const roleSvg = pos.roleLines.map(line => {
-          const el = `<text x="12" y="${curY}" font-size="10.6" font-weight="500" fill="${style.roleColor}">${escapeXml(line)}</text>`;
-          curY += 13.5;
-          return el;
-        }).join('');
-
-        // Botón inferior de colapsar / expandir rama
-        let toggleSvg = '';
-        if (hasChildren) {
-          const btnText = isCollapsed ? `+${children.length}` : '−';
-          const btnW = isCollapsed ? 28 : 20;
-          toggleSvg = `
-            <g class="toggle-btn-group" transform="translate(${pos.w / 2}, ${pos.h})" onclick="toggleNodeCollapse('${id}', event)">
-              <rect x="${-btnW / 2}" y="-9" width="${btnW}" height="18" rx="9" fill="#ffffff" stroke="#0f172a" stroke-width="1.4" />
-              <text x="0" y="3.5" text-anchor="middle" font-size="10.5" font-weight="800" fill="#0f172a">${btnText}</text>
+        let toggleBtnSvg = '';
+        if (children.length > 0) {
+          const bx = pos.x + pos.w / 2;
+          const by = pos.y + pos.h;
+          toggleBtnSvg = `
+            <g class="toggle-btn-group" onclick="event.stopPropagation(); toggleNodeCollapse('${node.id}')">
+              <circle cx="${bx}" cy="${by}" r="9" fill="#ffffff" stroke="#1e293b" stroke-width="1.6" />
+              <text x="${bx}" y="${by + 3.8}" text-anchor="middle" font-size="12" font-weight="800" fill="#0f172a">${isCollapsed ? '+' : '−'}</text>
             </g>
           `;
         }
 
-        fragments.push(`
-          <g class="cmap-node" data-node-id="${id}" transform="translate(${pos.x}, ${pos.y})">
-            <rect class="node-box" x="0" y="0" width="${pos.w}" height="${pos.h}" rx="10"
-              fill="${style.fill}" stroke="${style.stroke}" stroke-width="${style.strokeWidth}"
-              ${style.dash ? `stroke-dasharray="${style.dash}"` : ''}
+        parts.push(`
+          <g class="cmap-node" data-node-id="${node.id}">
+            <rect
+              class="node-box"
+              x="${pos.x}"
+              y="${pos.y}"
+              width="${pos.w}"
+              height="${pos.h}"
+              rx="10"
+              fill="${style.fill}"
+              stroke="${style.stroke}"
+              stroke-width="${style.strokeWidth}"
+              stroke-dasharray="${style.dashArray}"
               filter="url(#box-shadow)" />
-            ${topBadgeSvg}
-            ${logoSvg}
+            ${getOriginLogoSvg(node.origin, pos.x, pos.y, pos.w)}
+            ${pillSvg}
             ${nameSvg}
             ${roleSvg}
-            ${toggleSvg}
+            ${toggleBtnSvg}
           </g>
         `);
       });
 
-      nodesLayer.innerHTML = fragments.join('');
+      layer.innerHTML = parts.join('');
     }
 
-    // =======================================================================
-    // RESALTADO DE CADENA DE MANDO, LÍNEAS PUNTEADAS Y FILTROS
-    // =======================================================================
-    function getChainIds(focusId) {
+    function getAncestorChain(nodeId) {
       const chain = new Set();
-      if (!focusId || !nodeMap.has(focusId)) return chain;
-      chain.add(focusId);
-
-      // Ancestros hasta la cúspide
-      let cur = nodeMap.get(focusId);
-      while (cur && cur.parentId) {
-        chain.add(cur.parentId);
-        cur = nodeMap.get(cur.parentId);
+      let cur = nodeId;
+      while (cur) {
+        chain.add(cur);
+        const n = nodeMap.get(cur);
+        cur = n ? n.parentId : null;
       }
-
-      // Reportes directos inmediatos
-      (childrenMap.get(focusId) || []).forEach(cid => chain.add(cid));
       return chain;
     }
 
     function updateHighlightStates() {
-      const focusId = appState.selectedNodeId || appState.hoveredNodeId;
-      const chain = getChainIds(focusId);
-      const dottedLayer = document.getElementById('dotted-edges-layer');
-
-      // Dibujar líneas punteadas del nodo enfocado
-      if (focusId && appState.computedPositions.has(focusId)) {
-        const focusNode = nodeMap.get(focusId);
-        const srcPos = appState.computedPositions.get(focusId);
-        const targets = new Set([...(focusNode.dottedTo || []), ...(focusNode.reportsTo || []).filter(r => r !== focusNode.parentId)]);
-
-        dottedLayer.innerHTML = Array.from(targets).map(tid => {
-          const dstPos = appState.computedPositions.get(tid);
-          if (!dstPos) return '';
-          const x1 = srcPos.x + srcPos.w / 2;
-          const y1 = srcPos.y + srcPos.h / 2;
-          const x2 = dstPos.x + dstPos.w / 2;
-          const y2 = dstPos.y + dstPos.h / 2;
-          const cx = (x1 + x2) / 2;
-          const cy = Math.min(y1, y2) - 65;
-          return `
-            <path d="M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}"
-              fill="none" stroke="#6366f1" stroke-width="1.9" stroke-dasharray="6,4"
-              marker-end="url(#arrow-dotted)" opacity="0.92" />
-          `;
-        }).join('');
-      } else {
-        dottedLayer.innerHTML = '';
-      }
-
+      const activeId = appState.selectedNodeId || appState.hoveredNodeId;
+      const ancestorChain = activeId ? getAncestorChain(activeId) : new Set();
       const hasFilter = appState.activeFilter.type !== 'all';
 
-      // Actualizar opacidad y borde de nodos
       document.querySelectorAll('.cmap-node').forEach(el => {
         const id = el.getAttribute('data-node-id');
         const node = nodeMap.get(id);
@@ -4571,84 +4643,208 @@
         if (!node || !rect) return;
 
         const isSelected = id === appState.selectedNodeId;
-        const inChain = chain.has(id);
-        const matchesFilter = !hasFilter || nodeMatchesFilter(node);
+        const inChain = ancestorChain.has(id);
+        const matchesFilter = hasFilter && nodeMatchesFilter(node);
 
-        let opacity = 1;
-        if (hasFilter && !matchesFilter && !isSelected) {
-          opacity = 0.2;
-        } else if (focusId && !inChain && !hasFilter) {
-          opacity = 0.35;
+        if (isSelected) {
+          rect.setAttribute('stroke', '#1d4ed8');
+          rect.setAttribute('stroke-width', '3');
+          rect.setAttribute('filter', 'url(#box-shadow-selected)');
+        } else if (matchesFilter) {
+          rect.setAttribute('stroke', '#0f172a');
+          rect.setAttribute('stroke-width', '2.8');
+          rect.setAttribute('filter', 'url(#box-shadow-selected)');
+        } else {
+          const st = getNodeVisualStyle(node);
+          rect.setAttribute('stroke', inChain ? '#1d4ed8' : st.stroke);
+          rect.setAttribute('stroke-width', inChain ? '2.4' : String(st.strokeWidth));
+          rect.setAttribute('filter', 'url(#box-shadow)');
         }
 
-        el.style.opacity = String(opacity);
-        if (isSelected) {
-          rect.setAttribute('filter', 'url(#box-shadow-selected)');
-          rect.setAttribute('stroke-width', '3');
+        if (hasFilter) {
+          el.style.opacity = (matchesFilter || node.isGroupNode || inChain) ? '1' : '0.28';
+        } else if (activeId) {
+          el.style.opacity = inChain ? '1' : '0.35';
         } else {
-          rect.setAttribute('filter', 'url(#box-shadow)');
-          const st = getNodeVisualStyle(node);
-          rect.setAttribute('stroke-width', String(st.strokeWidth));
+          el.style.opacity = '1';
         }
       });
 
-      // Actualizar conectores
       document.querySelectorAll('.cmap-edge-group').forEach(el => {
-        const src = el.getAttribute('data-source');
-        const tgt = el.getAttribute('data-target');
-        const line = el.querySelector('.edge-line');
-        const highlighted = focusId && chain.has(src) && chain.has(tgt);
+        const fromId = el.getAttribute('data-from');
+        const toId = el.getAttribute('data-to');
+        const path = el.querySelector('path');
+        const inChain = ancestorChain.has(fromId) && ancestorChain.has(toId);
 
-        if (highlighted) {
-          el.style.opacity = '1';
-          line.setAttribute('stroke', '#1d4ed8');
-          line.setAttribute('stroke-width', '2.4');
-          line.setAttribute('marker-end', 'url(#arrow-highlight)');
-        } else {
-          el.style.opacity = (focusId || hasFilter) ? '0.25' : '1';
-          line.setAttribute('stroke', '#475569');
-          line.setAttribute('stroke-width', '1.55');
-          line.setAttribute('marker-end', 'url(#arrow-default)');
+        if (path) {
+          path.setAttribute('stroke', inChain ? '#1d4ed8' : '#475569');
+          path.setAttribute('stroke-width', inChain ? '2.3' : '1.5');
+          path.setAttribute('marker-end', inChain ? 'url(#arrow-highlight)' : 'url(#arrow-default)');
         }
+
+        if (hasFilter) {
+          el.style.opacity = inChain ? '1' : '0.35';
+        } else if (activeId) {
+          el.style.opacity = inChain ? '1' : '0.22';
+        } else {
+          el.style.opacity = '1';
+        }
+      });
+
+      // Renderizar líneas punteadas transversales (globales si Red Matricial está activa + nodo activo)
+      const dottedLayer = document.getElementById('dotted-edges-layer');
+      const dottedParts = [];
+      const drawnPairs = new Set();
+
+      function pushDottedConnector(fromId, targetId, isPrimaryActive) {
+        const pairKey = `${fromId}->${targetId}`;
+        if (drawnPairs.has(pairKey)) return;
+        const fromPos = appState.computedPositions.get(fromId);
+        const toPos = appState.computedPositions.get(targetId);
+        if (!fromPos || !toPos) return;
+        drawnPairs.add(pairKey);
+
+        const x1 = fromPos.x + fromPos.w / 2;
+        const y1 = fromPos.y + fromPos.h / 2;
+        const x2 = toPos.x + toPos.w / 2;
+        const y2 = toPos.y + toPos.h / 2;
+        const cx = (x1 + x2) / 2;
+        const cy = Math.min(y1, y2) - 48;
+
+        dottedParts.push(`
+          <path
+            d="M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}"
+            fill="none"
+            stroke="${isPrimaryActive ? '#4338ca' : '#6366f1'}"
+            stroke-width="${isPrimaryActive ? '2.4' : '1.4'}"
+            stroke-opacity="${isPrimaryActive ? '1' : '0.45'}"
+            stroke-dasharray="6,4"
+            marker-end="url(#arrow-dotted)" />
+        `);
+      }
+
+      if (activeId) {
+        const activeNode = nodeMap.get(activeId);
+        if (activeNode) {
+          (activeNode.dottedTo || []).forEach(targetId => pushDottedConnector(activeId, targetId, true));
+          // También mostrar quién tiene línea punteada entrante hacia activeId
+          nodeMap.forEach(otherNode => {
+            if (otherNode.id !== activeId && (otherNode.dottedTo || []).includes(activeId)) {
+              pushDottedConnector(otherNode.id, activeId, true);
+            }
+          });
+        }
+      }
+
+      if (appState.showAllDotted) {
+        appState.computedPositions.forEach((_, fromId) => {
+          const n = nodeMap.get(fromId);
+          if (!n || n.isGroupNode) return;
+          (n.dottedTo || []).forEach(targetId => pushDottedConnector(fromId, targetId, false));
+        });
+      }
+
+      dottedLayer.innerHTML = dottedParts.join('');
+    }
+
+    // =======================================================================
+    // MINIMAPA INTERACTIVO
+    // =======================================================================
+    function updateMinimap() {
+      const mmSvg = document.getElementById('minimap-svg');
+      const viewport = document.getElementById('canvas-viewport');
+      if (!mmSvg || !viewport) return;
+
+      const { minX, minY, maxX, maxY } = appState.bounds;
+      const worldW = Math.max(400, maxX - minX);
+      const worldH = Math.max(300, maxY - minY);
+      mmSvg.setAttribute('viewBox', `${minX} ${minY} ${worldW} ${worldH}`);
+
+      const nodesRects = [];
+      appState.computedPositions.forEach((pos, id) => {
+        const n = nodeMap.get(id);
+        let fill = '#64748b';
+        if (n) {
+          if (n.status === 'vacant') fill = '#dc2626';
+          else if (n.status === 'transition') fill = '#d97706';
+          else if (n.origin === 'warner') fill = '#0066cc';
+          else if (n.origin === 'paramount') fill = '#5b21b6';
+          else if (n.origin === 'external') fill = '#047857';
+        }
+        nodesRects.push(`<rect x="${pos.x}" y="${pos.y}" width="${pos.w}" height="${pos.h}" rx="8" fill="${fill}" opacity="0.85" />`);
+      });
+
+      const rect = viewport.getBoundingClientRect();
+      const s = appState.transform.scale || 1;
+      const vx = -appState.transform.x / s;
+      const vy = -appState.transform.y / s;
+      const vw = rect.width / s;
+      const vh = rect.height / s;
+      const strokeW = Math.max(18, worldW * 0.008);
+
+      mmSvg.innerHTML = `
+        ${nodesRects.join('')}
+        <rect x="${vx}" y="${vy}" width="${vw}" height="${vh}" fill="rgba(29, 78, 216, 0.12)" stroke="#1d4ed8" stroke-width="${strokeW}" />
+      `;
+    }
+
+    function setupMinimapInteraction() {
+      const container = document.getElementById('minimap-container');
+      const mmSvg = document.getElementById('minimap-svg');
+      const viewport = document.getElementById('canvas-viewport');
+      if (!container || !mmSvg || !viewport) return;
+
+      let dragging = false;
+      function navigateToClientPoint(clientX, clientY) {
+        const mmRect = mmSvg.getBoundingClientRect();
+        const { minX, minY, maxX, maxY } = appState.bounds;
+        const worldW = Math.max(400, maxX - minX);
+        const worldH = Math.max(300, maxY - minY);
+
+        const relX = Math.min(1, Math.max(0, (clientX - mmRect.left) / mmRect.width));
+        const relY = Math.min(1, Math.max(0, (clientY - mmRect.top) / mmRect.height));
+        const worldX = minX + relX * worldW;
+        const worldY = minY + relY * worldH;
+
+        const vpRect = viewport.getBoundingClientRect();
+        const s = appState.transform.scale;
+        appState.transform.x = vpRect.width / 2 - worldX * s;
+        appState.transform.y = vpRect.height / 2 - worldY * s;
+        applyTransform();
+      }
+
+      container.addEventListener('mousedown', e => {
+        dragging = true;
+        navigateToClientPoint(e.clientX, e.clientY);
+      });
+      window.addEventListener('mousemove', e => {
+        if (dragging) navigateToClientPoint(e.clientX, e.clientY);
+      });
+      window.addEventListener('mouseup', () => {
+        dragging = false;
       });
     }
 
     // =======================================================================
-    // TRANSFORMACIONES DE LIENZO (PAN, ZOOM, FIT Y MINIMAPA)
+    // CONTROLES DE TRANSFORMACIÓN, ZOOM, ENFOQUE Y MINIMAPA
     // =======================================================================
     function applyTransform() {
       const g = document.getElementById('viewport-transform-group');
       const { x, y, scale } = appState.transform;
       g.setAttribute('transform', `translate(${x}, ${y}) scale(${scale})`);
       const badge = document.getElementById('zoom-level-badge');
-      if (badge) badge.textContent = Math.round(scale * 100) + '%';
+      if (badge) badge.textContent = `${Math.round(scale * 100)}%`;
       updateMinimap();
-    }
-
-    function fitToScreen() {
-      const viewport = document.getElementById('canvas-viewport');
-      const vw = viewport.clientWidth || window.innerWidth;
-      const vh = viewport.clientHeight || (window.innerHeight - 70);
-      const { minX, minY, maxX, maxY } = appState.bounds;
-      const bw = Math.max(400, maxX - minX);
-      const bh = Math.max(300, maxY - minY);
-
-      const scale = Math.min(1, Math.max(0.14, Math.min((vw - 48) / bw, (vh - 48) / bh)));
-      const x = (vw - bw * scale) / 2 - minX * scale;
-      const y = (vh - bh * scale) / 2 - minY * scale;
-
-      appState.transform = { x, y, scale };
-      applyTransform();
     }
 
     function zoomBy(factor, clientX = null, clientY = null) {
       const viewport = document.getElementById('canvas-viewport');
       const rect = viewport.getBoundingClientRect();
-      const cx = clientX !== null ? clientX - rect.left : rect.width / 2;
-      const cy = clientY !== null ? clientY - rect.top : rect.height / 2;
+      const cx = clientX !== null ? (clientX - rect.left) : rect.width / 2;
+      const cy = clientY !== null ? (clientY - rect.top) : rect.height / 2;
 
       const oldScale = appState.transform.scale;
-      const newScale = Math.min(2.2, Math.max(0.12, oldScale * factor));
+      const newScale = Math.min(2.4, Math.max(0.12, oldScale * factor));
       const ratio = newScale / oldScale;
 
       appState.transform.x = cx - (cx - appState.transform.x) * ratio;
@@ -4657,223 +4853,175 @@
       applyTransform();
     }
 
+    function fitToScreen() {
+      const viewport = document.getElementById('canvas-viewport');
+      const rect = viewport.getBoundingClientRect();
+      const { minX, minY, maxX, maxY } = appState.bounds;
+      const contentW = Math.max(400, maxX - minX);
+      const contentH = Math.max(300, maxY - minY);
+
+      const scaleX = (rect.width - 48) / contentW;
+      const scaleY = (rect.height - 64) / contentH;
+      const scale = Math.min(1, Math.max(0.14, Math.min(scaleX, scaleY)));
+
+      appState.transform.scale = scale;
+      appState.transform.x = (rect.width - contentW * scale) / 2 - minX * scale;
+      appState.transform.y = (rect.height - contentH * scale) / 2 - minY * scale;
+      applyTransform();
+    }
+
     function resetZoom100() {
       const viewport = document.getElementById('canvas-viewport');
-      const vw = viewport.clientWidth || window.innerWidth;
-      const rootPos = appState.computedPositions.get('david-ellison');
-      const targetX = rootPos ? rootPos.x + rootPos.w / 2 : 800;
-      appState.transform = {
-        x: vw / 2 - targetX,
-        y: 36,
-        scale: 1
-      };
+      const rect = viewport.getBoundingClientRect();
+      const activeRootId = appState.isolatedRootId || 'david-ellison';
+      const rootPos = appState.computedPositions.get(activeRootId);
+      if (!rootPos) return;
+      appState.transform.scale = 1;
+      appState.transform.x = rect.width / 2 - (rootPos.x + rootPos.w / 2);
+      appState.transform.y = 40 - rootPos.y;
       applyTransform();
     }
 
     function centerOnNode(nodeId) {
-      // Asegurar que ningún ancestro esté colapsado
-      let cur = nodeMap.get(nodeId);
-      let expandedAny = false;
-      while (cur && cur.parentId) {
-        if (appState.collapsed.has(cur.parentId)) {
-          appState.collapsed.delete(cur.parentId);
-          expandedAny = true;
-        }
-        cur = nodeMap.get(cur.parentId);
-      }
-      if (expandedAny) recomputeAndRender();
-
       const pos = appState.computedPositions.get(nodeId);
       if (!pos) return;
       const viewport = document.getElementById('canvas-viewport');
-      const drawerOpen = !document.getElementById('detail-drawer').classList.contains('translate-x-full');
-      const drawerOffset = (drawerOpen && window.innerWidth >= 640) ? 200 : 0;
-      const vw = (viewport.clientWidth || window.innerWidth) - drawerOffset;
-      const vh = viewport.clientHeight || (window.innerHeight - 70);
-
-      const scale = Math.max(appState.transform.scale, 0.85);
-      appState.transform = {
-        x: vw / 2 - (pos.x + pos.w / 2) * scale,
-        y: vh / 2 - (pos.y + pos.h / 2) * scale,
-        scale
-      };
+      const rect = viewport.getBoundingClientRect();
+      const targetScale = Math.max(appState.transform.scale, 0.85);
+      appState.transform.scale = targetScale;
+      appState.transform.x = rect.width / 2 - (pos.x + pos.w / 2) * targetScale;
+      appState.transform.y = rect.height / 2 - (pos.y + pos.h / 2) * targetScale;
       applyTransform();
     }
 
     function focusAndSelectNode(nodeId) {
-      appState.selectedNodeId = nodeId;
+      let needsRender = false;
+      // Si hay una rama aislada y el nodo buscado no pertenece a ella, restaurar el mapa completo
+      if (appState.isolatedRootId && !isDescendantOrSelf(nodeId, appState.isolatedRootId)) {
+        appState.isolatedRootId = null;
+        document.getElementById('isolated-branch-banner').classList.add('hidden');
+        const sel = document.getElementById('branch-isolate-select');
+        if (sel) sel.value = '';
+        needsRender = true;
+      }
+
+      // Expandir ancestros si estuvieran colapsados
+      let cur = nodeMap.get(nodeId)?.parentId;
+      while (cur) {
+        if (appState.collapsed.has(cur)) {
+          appState.collapsed.delete(cur);
+          needsRender = true;
+        }
+        cur = nodeMap.get(cur)?.parentId;
+      }
+      if (needsRender) recomputeAndRender();
       centerOnNode(nodeId);
-      updateHighlightStates();
       openDetailDrawer(nodeId);
     }
 
-    function updateMinimap() {
-      const minimapNodes = document.getElementById('minimap-nodes');
-      const vpRect = document.getElementById('minimap-viewport-rect');
-      const viewport = document.getElementById('canvas-viewport');
-      if (!minimapNodes || !vpRect || !viewport) return;
-
-      const mw = 210, mh = 130;
-      const { minX, minY, maxX, maxY } = appState.bounds;
-      const bw = Math.max(400, maxX - minX);
-      const bh = Math.max(300, maxY - minY);
-      const mScale = Math.min((mw - 12) / bw, (mh - 12) / bh);
-      const offX = (mw - bw * mScale) / 2 - minX * mScale;
-      const offY = (mh - bh * mScale) / 2 - minY * mScale;
-
-      const rects = [];
-      appState.computedPositions.forEach((pos, id) => {
-        const node = nodeMap.get(id);
-        const st = getNodeVisualStyle(node);
-        rects.push(`<rect x="${pos.x * mScale + offX}" y="${pos.y * mScale + offY}" width="${Math.max(2.5, pos.w * mScale)}" height="${Math.max(2, pos.h * mScale)}" fill="${st.minimapFill}" rx="1" />`);
-      });
-      minimapNodes.innerHTML = rects.join('');
-
-      const { x, y, scale } = appState.transform;
-      const worldLeft = -x / scale;
-      const worldTop = -y / scale;
-      const worldW = (viewport.clientWidth || window.innerWidth) / scale;
-      const worldH = (viewport.clientHeight || window.innerHeight) / scale;
-
-      vpRect.setAttribute('x', String(Math.max(0, worldLeft * mScale + offX)));
-      vpRect.setAttribute('y', String(Math.max(0, worldTop * mScale + offY)));
-      vpRect.setAttribute('width', String(Math.min(mw, Math.max(12, worldW * mScale))));
-      vpRect.setAttribute('height', String(Math.min(mh, Math.max(10, worldH * mScale))));
+    function isDescendantOrSelf(nodeId, ancestorId) {
+      let cur = nodeId;
+      while (cur) {
+        if (cur === ancestorId) return true;
+        cur = nodeMap.get(cur)?.parentId;
+      }
+      return false;
     }
 
-    function setupMinimapInteraction() {
-      const svg = document.getElementById('minimap-svg');
-      const viewport = document.getElementById('canvas-viewport');
-      if (!svg || !viewport) return;
+    function isolateBranch(nodeId) {
+      const node = nodeMap.get(nodeId);
+      if (!node) return;
+      appState.isolatedRootId = nodeId;
+      appState.collapsed.delete(nodeId);
 
-      let dragging = false;
-      function moveFromEvent(e) {
-        const rect = svg.getBoundingClientRect();
-        const mx = e.clientX - rect.left;
-        const my = e.clientY - rect.top;
-        const mw = 210, mh = 130;
-        const { minX, minY, maxX, maxY } = appState.bounds;
-        const bw = Math.max(400, maxX - minX);
-        const bh = Math.max(300, maxY - minY);
-        const mScale = Math.min((mw - 12) / bw, (mh - 12) / bh);
-        const offX = (mw - bw * mScale) / 2 - minX * mScale;
-        const offY = (mh - bh * mScale) / 2 - minY * mScale;
+      const banner = document.getElementById('isolated-branch-banner');
+      document.getElementById('isolated-branch-text').textContent = `Rama aislada: ${node.name}`;
+      banner.classList.remove('hidden');
 
-        const worldX = (mx - offX) / mScale;
-        const worldY = (my - offY) / mScale;
-        const { scale } = appState.transform;
-        appState.transform.x = (viewport.clientWidth / 2) - worldX * scale;
-        appState.transform.y = (viewport.clientHeight / 2) - worldY * scale;
-        applyTransform();
+      const sel = document.getElementById('branch-isolate-select');
+      if (sel) {
+        sel.value = Array.from(sel.options).some(o => o.value === nodeId) ? nodeId : '';
       }
 
-      svg.addEventListener('mousedown', e => { dragging = true; moveFromEvent(e); });
-      window.addEventListener('mousemove', e => { if (dragging) moveFromEvent(e); });
-      window.addEventListener('mouseup', () => { dragging = false; });
+      recomputeAndRender();
+      fitToScreen();
+      showToast(`Enfocando rama: ${node.name}`);
     }
 
-    // =======================================================================
-    // CONTROLES DE COLAPSO, EXPANSIÓN Y DISEÑO
-    // =======================================================================
-    function toggleNodeCollapse(nodeId, event) {
-      if (event) event.stopPropagation();
-      if (appState.collapsed.has(nodeId)) {
-        appState.collapsed.delete(nodeId);
+    function clearIsolatedBranch() {
+      if (!appState.isolatedRootId) return;
+      appState.isolatedRootId = null;
+      document.getElementById('isolated-branch-banner').classList.add('hidden');
+      const sel = document.getElementById('branch-isolate-select');
+      if (sel) sel.value = '';
+      recomputeAndRender();
+      fitToScreen();
+    }
+
+    function handleBranchSelectChange(val) {
+      if (!val) {
+        clearIsolatedBranch();
       } else {
-        appState.collapsed.add(nodeId);
+        isolateBranch(val);
       }
-      recomputeAndRender();
     }
 
-    function expandAllNodes() {
-      appState.collapsed.clear();
-      recomputeAndRender();
-      fitToScreen();
-    }
-
-    function collapseToDivisions() {
-      appState.collapsed.clear();
-      const divisionIds = [
-        'corp-functions-hub',
-        'div-dtc-tv',
-        'div-cable-media',
-        'div-advertising',
-        'div-motion-picture'
-      ];
-      divisionIds.forEach(id => appState.collapsed.add(id));
-      recomputeAndRender();
-      fitToScreen();
-    }
-
-    function restoreDefaultLayout() {
-      if (appState.isReadOnly) return;
-      appState.customOffsets.clear();
-      recomputeAndRender();
-      fitToScreen();
-      showToast('Diseño automático restaurado');
-    }
-
-    // =======================================================================
-    // MODO SOLO LECTURA ("NO EDITAR")
-    // =======================================================================
-    function toggleReadOnlyMode(forceVal) {
-      appState.isReadOnly = typeof forceVal === 'boolean' ? forceVal : !appState.isReadOnly;
-      if (appState.isReadOnly) {
-        cancelEditForm();
-      }
-      updateReadOnlyUI();
-      showToast(appState.isReadOnly ? '🔒 Modo Solo Lectura activado' : '🔓 Edición de cajas y fichas activada');
-    }
-
-    function updateReadOnlyUI() {
-      const btn = document.getElementById('readonly-toggle-btn');
-      const icon = document.getElementById('readonly-toggle-icon');
-      const label = document.getElementById('readonly-toggle-label');
-      const hud = document.getElementById('readonly-hud-badge');
-      const restoreBtn = document.getElementById('restore-layout-btn');
-      const restoreDiv = document.getElementById('restore-layout-divider');
-      const drawerEditBtn = document.getElementById('drawer-edit-btn');
-
-      if (appState.isReadOnly) {
-        document.body.classList.add('readonly-mode');
-        btn.className = 'px-2.5 py-1 rounded-lg text-xs font-bold bg-[#0f172a] text-white border border-[#0f172a] hover:bg-slate-800 transition whitespace-nowrap inline-flex items-center gap-1.5 shadow-2xs';
-        icon.textContent = '🔒';
-        label.textContent = 'No editar (Solo lectura)';
-        hud.classList.remove('hidden');
-        restoreBtn.classList.add('hidden');
-        restoreDiv.classList.add('hidden');
-        drawerEditBtn.classList.add('hidden');
+    function toggleMatrixLines() {
+      appState.showAllDotted = !appState.showAllDotted;
+      const btn = document.getElementById('matrix-toggle-btn');
+      if (appState.showAllDotted) {
+        btn.classList.remove('bg-white', 'text-indigo-800', 'border-indigo-300');
+        btn.classList.add('bg-indigo-700', 'text-white', 'border-indigo-800', 'ring-2', 'ring-indigo-500', 'ring-offset-1');
+        showToast('Red Matricial activada: mostrando todas las líneas punteadas');
       } else {
-        document.body.classList.remove('readonly-mode');
-        btn.className = 'px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 transition whitespace-nowrap inline-flex items-center gap-1.5 shadow-2xs';
-        icon.textContent = '🔓';
-        label.textContent = 'Permitir editar';
-        hud.classList.add('hidden');
-        restoreBtn.classList.remove('hidden');
-        restoreDiv.classList.remove('hidden');
-        drawerEditBtn.classList.remove('hidden');
+        btn.classList.add('bg-white', 'text-indigo-800', 'border-indigo-300');
+        btn.classList.remove('bg-indigo-700', 'text-white', 'border-indigo-800', 'ring-2', 'ring-indigo-500', 'ring-offset-1');
       }
-    }
-
-    let toastTimer = null;
-    function showToast(msg) {
-      const toast = document.getElementById('status-toast');
-      if (!toast) return;
-      toast.textContent = msg;
-      toast.classList.remove('hidden');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toast.classList.add('hidden'), 2400);
+      updateHighlightStates();
     }
 
     // =======================================================================
     // FILTROS POR PROCEDENCIA Y ESTADO + BUSCADOR INSTANTÁNEO
     // =======================================================================
+    function getNodeHub(node) {
+      const text = `${node.name} ${node.role} ${node.division} ${(node.brands || []).join(' ')} ${node.notes || ''}`.toLowerCase();
+      if (/(polonia|poland|tvn|varsovia)/.test(text)) return 'poland';
+      if (/(singapur|apac|mena|asia|australia|india|jap[oó]n|network 10|gibbons|mcgarvey|monteiro|bedi|bigio|chang)/.test(text)) return 'apac';
+      if (/(latam|latinoam[eé]rica|brasil|m[eé]xico|colombia|argentina|chile|hispanic|miami|medin|buzanello|c[aá]rdenas|proti|buitrago|maya|ortiz|paz|pimentel|vieira|zuccarino|waltuch|raffo|monsalve|doria|minaker|akel|jasin)/.test(text)) return 'latam';
+      if (/(londres|london|uk|reino unido|irlanda|europa|europe|italia|espa[nñ]a|francia|turqu[ií]a|[aá]frica|n[oó]rdicos|nordics|benelux|gsa|alemania|suiza|austria|iberia|channel 5|georgiou|araimo|rafique|sakaan|sulebakk|smyth|hooper|morris|patel|heinze|yllera)/.test(text)) return 'london';
+      if (/(nueva york|\(ny\)|new york|cbs|mtv|bet|comedy central|nickelodeon|goren|garcia|lian|policicio|enterlin|cheeks|berson|stapf|reisenbach|benson|askinasi|carney)/.test(text)) return 'ny';
+      return 'la';
+    }
+
+    function nodeMatchesBrand(node, brandKey) {
+      const text = `${node.name} ${node.role} ${node.division} ${(node.brands || []).join(' ')} ${node.notes || ''}`.toLowerCase();
+      switch (brandKey) {
+        case 'hbo': return /(hbo|max)/.test(text);
+        case 'paramount_plus': return /paramount\+/.test(text);
+        case 'cbs': return /\bcbs\b/.test(text);
+        case 'pluto': return /(pluto|avod|fast)/.test(text);
+        case 'dc': return /\bdc\b|dc studios|dc comics/.test(text);
+        case 'wb_pictures': return /(warner bros\. pictures|new line|republic pictures|clockwork|tcm|turner classic)/.test(text);
+        case 'paramount_pictures': return /(paramount pictures|paramount primal|skydance animation)/.test(text);
+        case 'cable': return /(tnt|tbs|discovery|food network|hgtv|tlc|own|bet|mtv|vh1|cable media)/.test(text);
+        case 'kids': return /(nickelodeon|cartoon network|adult swim|hanna-barbera|kids & animation|kids & family)/.test(text);
+        case 'sports': return /(sports|bleacher report)/.test(text);
+        default: return true;
+      }
+    }
+
     function nodeMatchesFilter(node) {
       if (node.isGroupNode) return false;
       const { type, value } = appState.activeFilter;
       if (type === 'all') return true;
       if (type === 'origin') return node.origin === value;
       if (type === 'status') return node.status === value;
+      if (type === 'hub') return getNodeHub(node) === value;
+      if (type === 'brand') return nodeMatchesBrand(node, value);
+      if (type === 'announcement') {
+        const ann = ANNOUNCEMENTS_DATA.find(a => a.id === value);
+        return ann ? ann.nodeIds.includes(node.id) : false;
+      }
       return true;
     }
 
@@ -4898,9 +5046,15 @@
       });
     }
 
-    function setCombinedFilter(type, value) {
+    function setCombinedFilter(type, value, customLabel = null) {
       appState.activeFilter = { type, value };
       updateCountsAndButtons();
+
+      // Sincronizar desplegables de Hub y Marca si el filtro no viene de ellos
+      const hubSel = document.getElementById('hub-filter-select');
+      const brandSel = document.getElementById('brand-filter-select');
+      if (hubSel && type !== 'hub') hubSel.value = 'all';
+      if (brandSel && type !== 'brand') brandSel.value = 'all';
 
       const banner = document.getElementById('filter-banner');
       if (type === 'all') {
@@ -4922,7 +5076,8 @@
         'status:transition': 'Estado: En Transición / Interinos',
         'status:departure': 'Estado: Salidas Confirmadas'
       };
-      document.getElementById('filter-banner-text').textContent = `${labelMap[`${type}:${value}`] || 'Filtro'} (${matches.length})`;
+      const bannerTitle = customLabel || labelMap[`${type}:${value}`] || 'Filtro activo';
+      document.getElementById('filter-banner-text').textContent = `${bannerTitle} (${matches.length})`;
       document.getElementById('filter-cycle-index').textContent = matches.length > 0 ? `1/${matches.length}` : '0/0';
       banner.classList.remove('hidden');
 
@@ -4930,6 +5085,42 @@
       if (matches.length > 0) {
         centerOnNode(matches[0]);
       }
+    }
+
+    function setHubFilter(hubKey) {
+      if (hubKey === 'all') {
+        setCombinedFilter('all', 'all');
+        return;
+      }
+      const hubLabels = {
+        la: 'Sede: Los Ángeles / Hollywood',
+        ny: 'Sede: Nueva York',
+        london: 'Sede: Londres / UK & Europa',
+        latam: 'Sede: Miami / Latinoamérica & USH',
+        apac: 'Sede: Singapur / APAC & MENA',
+        poland: 'Sede: Varsovia / Polonia'
+      };
+      setCombinedFilter('hub', hubKey, hubLabels[hubKey]);
+    }
+
+    function setBrandFilter(brandKey) {
+      if (brandKey === 'all') {
+        setCombinedFilter('all', 'all');
+        return;
+      }
+      const brandLabels = {
+        hbo: 'Marca: HBO / HBO Max',
+        paramount_plus: 'Marca: Paramount+',
+        cbs: 'Marca: CBS',
+        pluto: 'Marca: Pluto TV / AVOD / FAST',
+        dc: 'Marca: DC Studios & DC Comics',
+        wb_pictures: 'Marca: Warner Bros. Pictures & Sellos',
+        paramount_pictures: 'Marca: Paramount Pictures & Skydance Anim.',
+        cable: 'Marca: Global Cable Media',
+        kids: 'Marca: Kids & Animation',
+        sports: 'Marca: Global Sports Group'
+      };
+      setCombinedFilter('brand', brandKey, brandLabels[brandKey]);
     }
 
     function cycleFilteredNode(delta) {
@@ -4940,44 +5131,70 @@
       focusAndSelectNode(list[appState.filteredCycleIdx]);
     }
 
+    function toggleNodeCollapse(nodeId) {
+      if (appState.collapsed.has(nodeId)) {
+        appState.collapsed.delete(nodeId);
+      } else {
+        appState.collapsed.add(nodeId);
+      }
+      recomputeAndRender();
+    }
+
+    function expandAllNodes() {
+      appState.collapsed.clear();
+      recomputeAndRender();
+      fitToScreen();
+    }
+
+    function collapseToDivisions() {
+      appState.collapsed.clear();
+      ['corp-functions-hub', 'div-dtc-tv', 'div-cable-media', 'div-advertising', 'div-motion-picture'].forEach(id => {
+        if (nodeMap.has(id)) appState.collapsed.add(id);
+      });
+      recomputeAndRender();
+      fitToScreen();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('search-input');
+      const dropdown = document.getElementById('search-results-dropdown');
+      const clearBtn = document.getElementById('clear-search-btn');
+      if (input) input.value = '';
+      if (dropdown) dropdown.classList.add('hidden');
+      if (clearBtn) clearBtn.classList.add('hidden');
+    }
+
     function setupSearch() {
       const input = document.getElementById('search-input');
       const dropdown = document.getElementById('search-results-dropdown');
       const clearBtn = document.getElementById('clear-search-btn');
+      if (!input || !dropdown) return;
 
       input.addEventListener('input', () => {
         const q = input.value.trim().toLowerCase();
-        if (!q) {
+        if (q.length === 0) {
           dropdown.classList.add('hidden');
-          clearBtn.classList.add('hidden');
+          if (clearBtn) clearBtn.classList.add('hidden');
           return;
         }
-        clearBtn.classList.remove('hidden');
+        if (clearBtn) clearBtn.classList.remove('hidden');
 
         const matches = NODES_DATA.filter(n => {
-          const origLabel = getOriginConfig(n.origin).fullLabel.toLowerCase();
-          return (
-            n.name.toLowerCase().includes(q) ||
-            n.role.toLowerCase().includes(q) ||
-            n.division.toLowerCase().includes(q) ||
-            origLabel.includes(q) ||
-            (n.brands || []).some(b => b.toLowerCase().includes(q)) ||
-            (n.notes || '').toLowerCase().includes(q)
-          );
-        }).slice(0, 18);
+          const hay = `${n.name} ${n.role} ${n.division} ${(n.brands || []).join(' ')} ${n.notes || ''}`.toLowerCase();
+          return hay.includes(q);
+        }).slice(0, 14);
 
         if (matches.length === 0) {
-          dropdown.innerHTML = `<div class="px-4 py-3 text-xs text-slate-500">Sin coincidencias para "${escapeXml(input.value)}"</div>`;
+          dropdown.innerHTML = `<div class="px-4 py-3 text-xs text-slate-500">Sin resultados para "${escapeXml(input.value)}"</div>`;
         } else {
           dropdown.innerHTML = matches.map(n => {
             const orig = getOriginConfig(n.origin);
             return `
-              <button type="button" onclick="selectSearchResult('${n.id}')"
-                class="w-full text-left px-3.5 py-2.5 hover:bg-slate-50 transition flex items-start justify-between gap-2">
+              <button type="button" onclick="focusAndSelectNode('${n.id}'); document.getElementById('search-results-dropdown').classList.add('hidden');"
+                class="w-full text-left px-3.5 py-2.5 hover:bg-slate-50 flex items-start justify-between gap-2 transition">
                 <div class="min-w-0">
                   <div class="text-xs font-extrabold text-slate-900 truncate">${escapeXml(n.name)}</div>
                   <div class="text-[11px] text-slate-600 truncate">${escapeXml(n.role)}</div>
-                  <div class="text-[10px] text-slate-400 truncate mt-0.5">${escapeXml(n.division)}</div>
                 </div>
                 <span class="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-bold ${orig.badgeCls}">${escapeXml(orig.label)}</span>
               </button>
@@ -4994,238 +5211,185 @@
       });
     }
 
-    function selectSearchResult(nodeId) {
-      document.getElementById('search-results-dropdown').classList.add('hidden');
-      focusAndSelectNode(nodeId);
-    }
-
-    function clearSearch() {
-      const input = document.getElementById('search-input');
-      input.value = '';
-      document.getElementById('search-results-dropdown').classList.add('hidden');
-      document.getElementById('clear-search-btn').classList.add('hidden');
-    }
-
     // =======================================================================
-    // PANEL LATERAL DE DETALLE EJECUTIVO Y EDICIÓN EN VIVO
+    // PANEL LATERAL DE DETALLE EJECUTIVO (SOLO LECTURA)
     // =======================================================================
     function openDetailDrawer(nodeId) {
       const node = nodeMap.get(nodeId);
       if (!node) return;
       appState.selectedNodeId = nodeId;
-      cancelEditForm();
       updateHighlightStates();
 
       const orig = getOriginConfig(node.origin);
       const originBadge = document.getElementById('drawer-origin-badge');
-      originBadge.className = `inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold ${orig.badgeCls}`;
+      originBadge.className = `inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold ${orig.badgeCls}`;
       originBadge.textContent = orig.label;
 
-      const statusMap = {
-        active: { label: 'Activo', cls: 'bg-emerald-500/20 text-emerald-200 border border-emerald-400/40' },
-        vacant: { label: 'Vacante', cls: 'bg-red-500/30 text-red-100 border border-red-400/50' },
-        transition: { label: 'En Transición', cls: 'bg-amber-500/30 text-amber-100 border border-amber-400/50' },
-        departure: { label: 'Salida Confirmada', cls: 'bg-slate-600 text-slate-200 border border-slate-400/50' }
-      };
-      const stInfo = statusMap[node.status] || statusMap.active;
-      const statusBadge = document.getElementById('drawer-status-badge');
-      statusBadge.className = `inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold ${stInfo.cls}`;
-      statusBadge.textContent = stInfo.label;
+      const statusMeta = {
+        active: { text: 'Activo', cls: 'bg-emerald-500/20 text-emerald-200 border border-emerald-400/40' },
+        vacant: { text: 'Vacante', cls: 'bg-red-500/25 text-red-200 border border-red-400/50' },
+        transition: { text: 'En Transición', cls: 'bg-amber-500/25 text-amber-200 border border-amber-400/50' },
+        departure: { text: 'Salida Confirmada', cls: 'bg-slate-500/30 text-slate-200 border border-slate-400/50' }
+      }[node.status] || { text: 'Activo', cls: 'bg-slate-700 text-slate-200' };
 
-      document.getElementById('drawer-division-tag').textContent = node.division;
+      const statusBadge = document.getElementById('drawer-status-badge');
+      statusBadge.className = `inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold ${statusMeta.cls}`;
+      statusBadge.textContent = statusMeta.text;
+
+      document.getElementById('drawer-division-tag').textContent = node.division || '';
       document.getElementById('drawer-name').textContent = node.name;
       document.getElementById('drawer-role').textContent = node.role;
-      document.getElementById('drawer-division').textContent = node.division;
       document.getElementById('drawer-origin-text').textContent = orig.fullLabel;
       document.getElementById('drawer-origin-logo-box').innerHTML = getOriginLogoHtml(node.origin);
-      document.getElementById('drawer-notes').textContent = node.notes || 'Sin observaciones adicionales registradas.';
+      document.getElementById('drawer-division').textContent = node.division || 'Skydance Corporation';
+      document.getElementById('drawer-notes').textContent = node.notes || 'Sin observaciones adicionales.';
 
-      // Reporta directamente a
-      const reportsSection = document.getElementById('drawer-reports-to-section');
-      const reportsList = document.getElementById('drawer-reports-to-list');
+      // Reportes superiores directos
+      const reportsToSection = document.getElementById('drawer-reports-to-section');
+      const reportsToList = document.getElementById('drawer-reports-to-list');
       const bosses = (node.reportsTo || []).map(id => nodeMap.get(id)).filter(Boolean);
       if (bosses.length > 0) {
-        reportsSection.classList.remove('hidden');
-        reportsList.innerHTML = bosses.map(b => renderPersonLinkButton(b)).join('');
+        reportsToSection.classList.remove('hidden');
+        reportsToList.innerHTML = bosses.map(b => `
+          <button type="button" onclick="focusAndSelectNode('${b.id}')"
+            class="w-full text-left p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 transition flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <div class="text-xs font-bold text-slate-900 truncate">${escapeXml(b.name)}</div>
+              <div class="text-[11px] text-slate-500 truncate">${escapeXml(b.role)}</div>
+            </div>
+            <span class="text-xs font-bold text-blue-700 shrink-0">Ver →</span>
+          </button>
+        `).join('');
       } else {
-        reportsSection.classList.add('hidden');
+        reportsToSection.classList.add('hidden');
       }
 
-      // Línea punteada
+      // Líneas punteadas
       const dottedSection = document.getElementById('drawer-dotted-section');
       const dottedList = document.getElementById('drawer-dotted-list');
-      const dottedPeople = (node.dottedTo || []).map(id => nodeMap.get(id)).filter(Boolean);
-      if (dottedPeople.length > 0) {
+      const dottedTargets = (node.dottedTo || []).map(id => nodeMap.get(id)).filter(Boolean);
+      if (dottedTargets.length > 0) {
         dottedSection.classList.remove('hidden');
-        dottedList.innerHTML = dottedPeople.map(p => renderPersonLinkButton(p, true)).join('');
+        dottedList.innerHTML = dottedTargets.map(d => `
+          <button type="button" onclick="focusAndSelectNode('${d.id}')"
+            class="w-full text-left p-2.5 rounded-xl bg-indigo-50/60 hover:bg-indigo-100/70 border border-dashed border-indigo-300 transition flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <div class="text-xs font-bold text-indigo-950 truncate">${escapeXml(d.name)}</div>
+              <div class="text-[11px] text-indigo-700 truncate">${escapeXml(d.role)}</div>
+            </div>
+            <span class="text-xs font-bold text-indigo-700 shrink-0">Ver →</span>
+          </button>
+        `).join('');
       } else {
         dottedSection.classList.add('hidden');
       }
 
-      // Marcas, canales y territorios
+      // Marcas y territorios
+      const brandsSection = document.getElementById('drawer-brands-section');
       const brandsList = document.getElementById('drawer-brands-list');
-      const brands = node.brands || [];
-      brandsList.innerHTML = brands.length > 0
-        ? brands.map(b => `<span class="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700">${escapeXml(b)}</span>`).join('')
-        : '<span class="text-xs text-slate-400">No especificado</span>';
+      if (node.brands && node.brands.length > 0) {
+        brandsSection.classList.remove('hidden');
+        brandsList.innerHTML = node.brands.map(br => `
+          <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 border border-slate-200 text-xs font-semibold">${escapeXml(br)}</span>
+        `).join('');
+      } else {
+        brandsSection.classList.add('hidden');
+      }
 
-      // Reportes directos / equipo
+      // Subordinados directos
       const subsSection = document.getElementById('drawer-subordinates-section');
       const subsList = document.getElementById('drawer-subordinates-list');
       const subsCount = document.getElementById('drawer-subordinates-count');
       const subs = (childrenMap.get(nodeId) || []).map(id => nodeMap.get(id)).filter(Boolean);
       if (subs.length > 0) {
         subsSection.classList.remove('hidden');
-        subsCount.textContent = String(subs.length);
-        subsList.innerHTML = subs.map(s => renderPersonLinkButton(s)).join('');
+        subsCount.textContent = `${subs.length}`;
+        subsList.innerHTML = subs.map(s => {
+          const sOrig = getOriginConfig(s.origin);
+          return `
+            <button type="button" onclick="focusAndSelectNode('${s.id}')"
+              class="w-full text-left p-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 transition flex items-center justify-between gap-2">
+              <div class="min-w-0">
+                <div class="text-xs font-bold text-slate-900 truncate">${escapeXml(s.name)}</div>
+                <div class="text-[11px] text-slate-500 truncate">${escapeXml(s.role)}</div>
+              </div>
+              <span class="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-bold ${sOrig.badgeCls}">${escapeXml(sOrig.label)}</span>
+            </button>
+          `;
+        }).join('');
       } else {
         subsSection.classList.add('hidden');
       }
 
       document.getElementById('drawer-center-btn').onclick = () => centerOnNode(nodeId);
-      document.getElementById('drawer-edit-btn').onclick = () => startEditNode(nodeId);
+
+      const isolateBtn = document.getElementById('drawer-isolate-btn');
+      if (subs.length > 0) {
+        isolateBtn.classList.remove('hidden');
+        isolateBtn.onclick = () => {
+          closeDetailDrawer();
+          isolateBranch(nodeId);
+        };
+      } else {
+        isolateBtn.classList.add('hidden');
+      }
 
       document.getElementById('detail-drawer').classList.remove('translate-x-full');
-    }
-
-    function renderPersonLinkButton(person, isDotted = false) {
-      const orig = getOriginConfig(person.origin);
-      return `
-        <button type="button" onclick="focusAndSelectNode('${person.id}')"
-          class="w-full text-left p-2.5 rounded-xl bg-white hover:bg-slate-50 border ${isDotted ? 'border-dashed border-indigo-300' : 'border-slate-200'} transition flex items-center justify-between gap-2 group">
-          <div class="min-w-0">
-            <div class="text-xs font-bold text-slate-900 group-hover:text-blue-700 truncate">${escapeXml(person.name)}</div>
-            <div class="text-[11px] text-slate-500 truncate">${escapeXml(person.role)}</div>
-          </div>
-          <span class="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-bold ${orig.badgeCls}">${escapeXml(orig.label)}</span>
-        </button>
-      `;
     }
 
     function closeDetailDrawer() {
       document.getElementById('detail-drawer').classList.add('translate-x-full');
       appState.selectedNodeId = null;
-      cancelEditForm();
       updateHighlightStates();
     }
 
-    function startEditNode(nodeId) {
-      if (appState.isReadOnly) return;
-      const node = nodeMap.get(nodeId);
-      if (!node) return;
-      appState.editingNodeId = nodeId;
-      document.getElementById('edit-role-input').value = node.role || '';
-      document.getElementById('edit-origin-select').value = node.origin || '';
-      document.getElementById('edit-status-select').value = node.status || 'active';
-      document.getElementById('edit-brands-input').value = (node.brands || []).join(', ');
-      document.getElementById('edit-notes-input').value = node.notes || '';
-      document.getElementById('drawer-edit-form').classList.remove('hidden');
-    }
-
-    function cancelEditForm() {
-      appState.editingNodeId = null;
-      const form = document.getElementById('drawer-edit-form');
-      if (form) form.classList.add('hidden');
-    }
-
-    function saveNodeEdits(event) {
-      event.preventDefault();
-      if (appState.isReadOnly || !appState.editingNodeId) return;
-      const node = nodeMap.get(appState.editingNodeId);
-      if (!node) return;
-
-      node.role = document.getElementById('edit-role-input').value.trim();
-      const rawOrigin = document.getElementById('edit-origin-select').value;
-      node.origin = rawOrigin || null;
-      node.status = document.getElementById('edit-status-select').value;
-      node.brands = document.getElementById('edit-brands-input').value
-        .split(',')
-        .map(s => s.trim())
-        .filter(Boolean);
-      node.notes = document.getElementById('edit-notes-input').value.trim();
-
-      cancelEditForm();
-      updateCountsAndButtons();
-      recomputeAndRender();
-      openDetailDrawer(node.id);
-      showToast('Ficha ejecutiva actualizada');
-    }
-
     // =======================================================================
-    // INTERACCIÓN DE LIENZO: PAN, ZOOM, ARRASTRE DE NODOS Y TÁCTIL
+    // INTERACCIÓN DEL LIENZO (PAN & ZOOM SOLO LECTURA + TÁCTIL)
     // =======================================================================
     function setupCanvasInteraction() {
       const viewport = document.getElementById('canvas-viewport');
+      if (!viewport) return;
 
-      let mode = null; // 'pan' | 'drag-node'
+      let isPanning = false;
       let startClientX = 0;
       let startClientY = 0;
       let startTransformX = 0;
       let startTransformY = 0;
-      let draggedNodeId = null;
-      let startOffsetDx = 0;
-      let startOffsetDy = 0;
       let hasMovedSignificantly = false;
+      let clickedNodeId = null;
 
       viewport.addEventListener('mousedown', e => {
         if (e.button !== 0) return;
-        // Ignorar botones de colapso +/-
         if (e.target.closest('.toggle-btn-group')) return;
-
         const nodeEl = e.target.closest('.cmap-node');
+        clickedNodeId = nodeEl ? nodeEl.getAttribute('data-node-id') : null;
+        isPanning = true;
+        hasMovedSignificantly = false;
         startClientX = e.clientX;
         startClientY = e.clientY;
-        hasMovedSignificantly = false;
-
-        if (nodeEl && !appState.isReadOnly) {
-          mode = 'drag-node';
-          draggedNodeId = nodeEl.getAttribute('data-node-id');
-          const curOffset = appState.customOffsets.get(draggedNodeId) || { dx: 0, dy: 0 };
-          startOffsetDx = curOffset.dx;
-          startOffsetDy = curOffset.dy;
-          nodeEl.classList.add('is-dragging');
-        } else {
-          mode = 'pan';
-          draggedNodeId = nodeEl ? nodeEl.getAttribute('data-node-id') : null;
-          startTransformX = appState.transform.x;
-          startTransformY = appState.transform.y;
-          viewport.classList.add('is-panning');
-        }
+        startTransformX = appState.transform.x;
+        startTransformY = appState.transform.y;
+        viewport.classList.add('is-panning');
       });
 
       window.addEventListener('mousemove', e => {
-        if (!mode) return;
+        if (!isPanning) return;
         const dx = e.clientX - startClientX;
         const dy = e.clientY - startClientY;
-        if (Math.hypot(dx, dy) > 4) {
-          hasMovedSignificantly = true;
-        }
-
-        if (mode === 'pan') {
-          appState.transform.x = startTransformX + dx;
-          appState.transform.y = startTransformY + dy;
-          applyTransform();
-        } else if (mode === 'drag-node' && draggedNodeId && hasMovedSignificantly) {
-          const scale = appState.transform.scale;
-          appState.customOffsets.set(draggedNodeId, {
-            dx: startOffsetDx + dx / scale,
-            dy: startOffsetDy + dy / scale
-          });
-          recomputeAndRender();
-        }
+        if (Math.hypot(dx, dy) > 4) hasMovedSignificantly = true;
+        appState.transform.x = startTransformX + dx;
+        appState.transform.y = startTransformY + dy;
+        applyTransform();
       });
 
       window.addEventListener('mouseup', () => {
-        if (!mode) return;
+        if (!isPanning) return;
         viewport.classList.remove('is-panning');
-        document.querySelectorAll('.cmap-node.is-dragging').forEach(el => el.classList.remove('is-dragging'));
-
-        if (!hasMovedSignificantly && draggedNodeId) {
-          openDetailDrawer(draggedNodeId);
+        if (!hasMovedSignificantly && clickedNodeId) {
+          openDetailDrawer(clickedNodeId);
         }
-
-        mode = null;
-        draggedNodeId = null;
+        isPanning = false;
+        clickedNodeId = null;
       });
 
       // Hover sobre nodos para iluminar cadena de mando
@@ -5255,7 +5419,7 @@
           const t = e.touches[0];
           const nodeEl = e.target.closest('.cmap-node');
           touchMode = 'pan';
-          draggedNodeId = nodeEl ? nodeEl.getAttribute('data-node-id') : null;
+          clickedNodeId = nodeEl ? nodeEl.getAttribute('data-node-id') : null;
           startClientX = t.clientX;
           startClientY = t.clientY;
           startTransformX = appState.transform.x;
@@ -5290,30 +5454,334 @@
       }, { passive: true });
 
       viewport.addEventListener('touchend', () => {
-        if (touchMode === 'pan' && !hasMovedSignificantly && draggedNodeId) {
-          openDetailDrawer(draggedNodeId);
+        if (touchMode === 'pan' && !hasMovedSignificantly && clickedNodeId) {
+          openDetailDrawer(clickedNodeId);
         }
         touchMode = null;
-        draggedNodeId = null;
+        clickedNodeId = null;
       });
+    }
+
+    // =======================================================================
+    // DASHBOARD DE EQUILIBRIO DE PODER, ÚLTIMOS ANUNCIOS Y EXPORTACIÓN
+    // =======================================================================
+    function openPowerDashboard() {
+      const people = NODES_DATA.filter(n => !n.isGroupNode);
+      const activePeople = people.filter(n => n.status === 'active' || n.status === 'transition');
+
+      const countOrigin = (list, orig) => list.filter(n => n.origin === orig).length;
+      const totalActiveOrigin = activePeople.filter(n => n.origin).length || 1;
+
+      const wbActive = countOrigin(activePeople, 'warner');
+      const paraActive = countOrigin(activePeople, 'paramount');
+      const extActive = countOrigin(activePeople, 'external');
+
+      const wbPct = ((wbActive / totalActiveOrigin) * 100).toFixed(1);
+      const paraPct = ((paraActive / totalActiveOrigin) * 100).toFixed(1);
+      const extPct = ((extActive / totalActiveOrigin) * 100).toFixed(1);
+
+      const vacants = people.filter(n => n.status === 'vacant').length;
+      const transitions = people.filter(n => n.status === 'transition').length;
+      const departures = people.filter(n => n.status === 'departure').length;
+
+      const divisions = [
+        { id: 'corp-functions-hub', name: 'Alta Dirección y Funciones Globales' },
+        { id: 'div-dtc-tv', name: 'División 1: Skydance DTC & Skydance TV' },
+        { id: 'div-cable-media', name: 'División 2: Global Cable Media & TV Studios' },
+        { id: 'div-advertising', name: 'División 3: Skydance Advertising' },
+        { id: 'div-motion-picture', name: 'División 4: Skydance Motion Picture Group' }
+      ];
+
+      const divisionRows = divisions.map(div => {
+        const divMembers = activePeople.filter(n => isDescendantOrSelf(n.id, div.id));
+        const dWb = countOrigin(divMembers, 'warner');
+        const dPara = countOrigin(divMembers, 'paramount');
+        const dExt = countOrigin(divMembers, 'external');
+        const dSum = (dWb + dPara + dExt) || 1;
+        return `
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="font-bold text-slate-900 text-xs sm:text-sm">${escapeXml(div.name)}</span>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-semibold text-slate-500">${divMembers.length} líderes activos</span>
+                <button type="button" onclick="closePowerDashboard(); isolateBranch('${div.id}')"
+                  class="px-2.5 py-0.5 rounded-lg bg-white border border-slate-300 text-[11px] font-bold text-slate-800 hover:bg-slate-100 transition">
+                  🔍 Aislar rama
+                </button>
+              </div>
+            </div>
+            <div class="w-full h-3 rounded-full overflow-hidden flex bg-slate-200">
+              <div style="width:${(dWb / dSum * 100).toFixed(1)}%" class="bg-[#0066cc]" title="Warner Bros.: ${dWb}"></div>
+              <div style="width:${(dPara / dSum * 100).toFixed(1)}%" class="bg-[#5b21b6]" title="Paramount: ${dPara}"></div>
+              <div style="width:${(dExt / dSum * 100).toFixed(1)}%" class="bg-[#047857]" title="Skydance / Externo: ${dExt}"></div>
+            </div>
+            <div class="flex flex-wrap items-center justify-between text-[11px] font-semibold gap-2">
+              <span class="text-[#0057b8]">Warner Bros.: ${dWb} (${(dWb / dSum * 100).toFixed(0)}%)</span>
+              <span class="text-[#5b21b6]">Paramount: ${dPara} (${(dPara / dSum * 100).toFixed(0)}%)</span>
+              <span class="text-[#047857]">Skydance / Externo: ${dExt} (${(dExt / dSum * 100).toFixed(0)}%)</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('power-dashboard-body').innerHTML = `
+        <!-- KPIs de Procedencia Global (Activos + En Transición) -->
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Reparto Global por Entidad de Procedencia (Puestos Activos: ${totalActiveOrigin})</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button type="button" onclick="closePowerDashboard(); setCombinedFilter('origin', 'warner')"
+              class="text-left p-4 rounded-xl bg-[#dbeafe]/60 border border-[#0066cc] hover:brightness-95 transition">
+              <div class="text-xs font-bold text-[#0057b8]">Warner Bros. / WBD</div>
+              <div class="text-2xl font-extrabold text-slate-900 mt-1">${wbActive} <span class="text-sm font-semibold text-slate-600">(${wbPct}%)</span></div>
+              <div class="text-[11px] text-slate-600 mt-1">Pulsa para resaltar en el mapa →</div>
+            </button>
+            <button type="button" onclick="closePowerDashboard(); setCombinedFilter('origin', 'paramount')"
+              class="text-left p-4 rounded-xl bg-[#ede9fe]/60 border border-[#5b21b6] hover:brightness-95 transition">
+              <div class="text-xs font-bold text-[#5b21b6]">Paramount Global</div>
+              <div class="text-2xl font-extrabold text-slate-900 mt-1">${paraActive} <span class="text-sm font-semibold text-slate-600">(${paraPct}%)</span></div>
+              <div class="text-[11px] text-slate-600 mt-1">Pulsa para resaltar en el mapa →</div>
+            </button>
+            <button type="button" onclick="closePowerDashboard(); setCombinedFilter('origin', 'external')"
+              class="text-left p-4 rounded-xl bg-[#d1fae5]/60 border border-[#047857] hover:brightness-95 transition">
+              <div class="text-xs font-bold text-[#047857]">Skydance / Externos</div>
+              <div class="text-2xl font-extrabold text-slate-900 mt-1">${extActive} <span class="text-sm font-semibold text-slate-600">(${extPct}%)</span></div>
+              <div class="text-[11px] text-slate-600 mt-1">Pulsa para resaltar en el mapa →</div>
+            </button>
+          </div>
+          <div class="w-full h-4 rounded-full overflow-hidden flex bg-slate-200 shadow-inner">
+            <div style="width:${wbPct}%" class="bg-[#0066cc] transition-all"></div>
+            <div style="width:${paraPct}%" class="bg-[#5b21b6] transition-all"></div>
+            <div style="width:${extPct}%" class="bg-[#047857] transition-all"></div>
+          </div>
+        </div>
+
+        <!-- KPIs de Estado de Integración -->
+        <div class="grid grid-cols-3 gap-3">
+          <button type="button" onclick="closePowerDashboard(); setCombinedFilter('status', 'vacant')"
+            class="p-3 rounded-xl bg-red-50 border border-red-300 text-left hover:bg-red-100/70 transition">
+            <div class="text-[11px] font-bold text-red-800 uppercase">Vacantes Abiertas</div>
+            <div class="text-xl font-extrabold text-red-950 mt-0.5">${vacants}</div>
+          </button>
+          <button type="button" onclick="closePowerDashboard(); setCombinedFilter('status', 'transition')"
+            class="p-3 rounded-xl bg-amber-50 border border-amber-300 text-left hover:bg-amber-100/70 transition">
+            <div class="text-[11px] font-bold text-amber-800 uppercase">En Transición / Interinos</div>
+            <div class="text-xl font-extrabold text-amber-950 mt-0.5">${transitions}</div>
+          </button>
+          <button type="button" onclick="closePowerDashboard(); setCombinedFilter('status', 'departure')"
+            class="p-3 rounded-xl bg-slate-100 border border-slate-300 text-left hover:bg-slate-200/70 transition">
+            <div class="text-[11px] font-bold text-slate-700 uppercase">Salidas Confirmadas</div>
+            <div class="text-xl font-extrabold text-slate-900 mt-0.5">${departures}</div>
+          </button>
+        </div>
+
+        <!-- Desglose por División -->
+        <div class="space-y-2.5">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Desglose por División Operativa</h3>
+          <div class="space-y-2.5">${divisionRows}</div>
+        </div>
+      `;
+
+      document.getElementById('power-dashboard-modal').classList.remove('hidden');
+    }
+
+    function closePowerDashboard() {
+      document.getElementById('power-dashboard-modal').classList.add('hidden');
+    }
+
+    function openAnnouncementsModal() {
+      const body = document.getElementById('announcements-modal-body');
+      body.innerHTML = ANNOUNCEMENTS_DATA.map((ann, idx) => `
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-400 transition space-y-2">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-[#0f172a] text-white">${escapeXml(ann.date)}</span>
+              ${idx === 0 ? '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">MÁS RECIENTE</span>' : ''}
+            </div>
+            <button type="button" onclick="highlightAnnouncement('${ann.id}')"
+              class="px-3 py-1 rounded-lg bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 transition inline-flex items-center gap-1">
+              <span>Iluminar en el mapa (${ann.nodeIds.length})</span>
+              <span>→</span>
+            </button>
+          </div>
+          <div class="text-sm font-extrabold text-slate-900">${escapeXml(ann.title)}</div>
+          <div class="text-[11px] font-semibold text-blue-800">Comunicado de: ${escapeXml(ann.sender)}</div>
+          <p class="text-xs text-slate-600 leading-relaxed">${escapeXml(ann.summary)}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('announcements-modal').classList.remove('hidden');
+    }
+
+    function closeAnnouncementsModal() {
+      document.getElementById('announcements-modal').classList.add('hidden');
+    }
+
+    function highlightAnnouncement(annId) {
+      const ann = ANNOUNCEMENTS_DATA.find(a => a.id === annId);
+      if (!ann) return;
+      closeAnnouncementsModal();
+      clearIsolatedBranch();
+      setCombinedFilter('announcement', annId, `Comunicado (${ann.date}): ${ann.title}`);
+    }
+
+    function toggleExportMenu(event) {
+      event.stopPropagation();
+      const dd = document.getElementById('export-dropdown');
+      dd.classList.toggle('hidden');
+    }
+
+    function showToast(message, icon = '✅') {
+      const toast = document.getElementById('toast-notification');
+      document.getElementById('toast-icon').textContent = icon;
+      document.getElementById('toast-message').textContent = message;
+      toast.classList.remove('hidden');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.add('hidden'), 3400);
+    }
+
+    function exportOrgToCsv() {
+      document.getElementById('export-dropdown').classList.add('hidden');
+      const headers = ['Nombre', 'Cargo', 'División', 'Procedencia', 'Estado', 'Reporta directamente a', 'Línea punteada a', 'Marcas y Territorios', 'Notas'];
+      const statusLabels = { active: 'Activo', vacant: 'Vacante', transition: 'En Transición', departure: 'Salida Confirmada' };
+
+      const rows = NODES_DATA.filter(n => !n.isGroupNode).map(n => {
+        const bosses = (n.reportsTo || []).map(id => nodeMap.get(id)?.name || id).join(' / ');
+        const dotted = (n.dottedTo || []).map(id => nodeMap.get(id)?.name || id).join(' / ');
+        const brands = (n.brands || []).join(' | ');
+        const origLabel = getOriginConfig(n.origin).fullLabel;
+        const stLabel = statusLabels[n.status] || n.status;
+        return [n.name, n.role, n.division, origLabel, stLabel, bosses, dotted, brands, n.notes || '']
+          .map(val => `"${String(val).replace(/"/g, '""')}"`)
+          .join(',');
+      });
+
+      const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\r\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `organigrama_skydance_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Archivo Excel / CSV descargado correctamente');
+    }
+
+    function exportMapToPng() {
+      document.getElementById('export-dropdown').classList.add('hidden');
+      showToast('Generando imagen PNG de alta resolución...', '⏳');
+
+      try {
+        const origSvg = document.getElementById('cmap-svg');
+        const clonedSvg = origSvg.cloneNode(true);
+        const { minX, minY, maxX, maxY } = appState.bounds;
+        const headerPad = 76;
+        const worldW = Math.max(800, maxX - minX);
+        const worldH = Math.max(600, maxY - minY) + headerPad;
+
+        const vpGroup = clonedSvg.querySelector('#viewport-transform-group');
+        if (vpGroup) vpGroup.removeAttribute('transform');
+
+        // Añadir fondo blanco y cabecera corporativa en la imagen exportada
+        const bgRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        bgRect.setAttribute('x', String(minX));
+        bgRect.setAttribute('y', String(minY - headerPad));
+        bgRect.setAttribute('width', String(worldW));
+        bgRect.setAttribute('height', String(worldH));
+        bgRect.setAttribute('fill', '#f8fafc');
+        clonedSvg.insertBefore(bgRect, clonedSvg.firstChild);
+
+        const titleText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        titleText.setAttribute('x', String(minX + 40));
+        titleText.setAttribute('y', String(minY - 26));
+        titleText.setAttribute('font-family', 'Inter, Arial, sans-serif');
+        titleText.setAttribute('font-size', '26');
+        titleText.setAttribute('font-weight', '800');
+        titleText.setAttribute('fill', '#0f172a');
+        titleText.textContent = `SKYDANCE CORPORATION — Estructura Ejecutiva (${new Date().toLocaleDateString('es-ES')})`;
+        clonedSvg.insertBefore(titleText, vpGroup);
+
+        // Escalar manteniendo nitidez dentro de los límites del canvas del navegador
+        const maxSide = 4400;
+        const scaleRatio = Math.min(1.5, maxSide / Math.max(worldW, worldH));
+        const outW = Math.round(worldW * scaleRatio);
+        const outH = Math.round(worldH * scaleRatio);
+
+        clonedSvg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        clonedSvg.setAttribute('viewBox', `${minX} ${minY - headerPad} ${worldW} ${worldH}`);
+        clonedSvg.setAttribute('width', String(outW));
+        clonedSvg.setAttribute('height', String(outH));
+
+        const svgString = new XMLSerializer().serializeToString(clonedSvg);
+        const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+        const url = URL.createObjectURL(svgBlob);
+
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = outW;
+          canvas.height = outH;
+          const ctx = canvas.getContext('2d');
+          ctx.fillStyle = '#f8fafc';
+          ctx.fillRect(0, 0, outW, outH);
+          ctx.drawImage(img, 0, 0, outW, outH);
+          URL.revokeObjectURL(url);
+
+          canvas.toBlob(pngBlob => {
+            if (!pngBlob) {
+              showToast('No se pudo generar el PNG en este navegador', '⚠️');
+              return;
+            }
+            const pngUrl = URL.createObjectURL(pngBlob);
+            const a = document.createElement('a');
+            a.href = pngUrl;
+            a.download = `organigrama_skydance_${new Date().toISOString().slice(0, 10)}.png`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(pngUrl);
+            showToast('Imagen PNG descargada lista para presentar');
+          }, 'image/png');
+        };
+        img.onerror = () => {
+          URL.revokeObjectURL(url);
+          showToast('Error al renderizar la imagen PNG', '⚠️');
+        };
+        img.src = url;
+      } catch (e) {
+        showToast('Error exportando PNG: ' + e.message, '⚠️');
+      }
     }
 
     // =======================================================================
     // INICIALIZACIÓN DE LA APLICACIÓN
     // =======================================================================
     function init() {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('readonly') === '1') {
-        appState.isReadOnly = true;
-      }
-
       updateCountsAndButtons();
-      updateReadOnlyUI();
       recomputeAndRender();
       setupSearch();
       setupCanvasInteraction();
       setupMinimapInteraction();
       fitToScreen();
+
+      document.addEventListener('click', e => {
+        const wrapper = document.getElementById('export-menu-wrapper');
+        const dd = document.getElementById('export-dropdown');
+        if (wrapper && dd && !wrapper.contains(e.target)) {
+          dd.classList.add('hidden');
+        }
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+          closePowerDashboard();
+          closeAnnouncementsModal();
+          closeDetailDrawer();
+        }
+      });
     }
 
     window.addEventListener('resize', () => updateMinimap());
